@@ -1,3 +1,5 @@
+import { csrfFetch } from "./csrf";
+
 // ACTION TYPES
 const RECEIVE_USER = 'users/RECEIVE_USER';
 const REMOVE_USER = 'users/REMOVE_USER';
@@ -21,7 +23,6 @@ export const removeUser = userId => ({
     });
     let data = await res.json();
     sessionStorage.setItem('currentUser', JSON.stringify(data.user));
-    debugger
     dispatch(receiveUser(data.user))
 };
 
@@ -49,7 +50,6 @@ const userReducer = ( state = {}, action ) => {
 
     switch(action.type) {
         case RECEIVE_USER:
-            debugger
             nextState[action.payload.id] = action.payload;
             return nextState;
         case REMOVE_USER:
