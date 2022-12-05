@@ -21,7 +21,7 @@ function App() {
           <SignupFormPage />
         </Route>
         <Route path="/browse">
-
+          <Navigation />
         </Route>
       </Switch>
     </>
