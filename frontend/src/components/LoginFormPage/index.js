@@ -11,7 +11,7 @@ function LoginFormPage() {
   const [password, setPassword] = useState('');
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/browse" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,26 +39,42 @@ function LoginFormPage() {
   }
 
   return (
-    <form className="login form" onSubmit={handleSubmit}>
-        {errors.length ? addErrors() : <></> }
-        <label htmlFor='email'>Username or Email</label>
-        <input
-          type="text"
-          id='email'
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-      <label htmlFor='password'>Password</label>
-        <input
-          type="password"
-          id='password'
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      <button type="submit">Log In</button>
-    </form>
+    <>
+      <div className="login-page">
+        <div className="login-header"></div>
+        <div className="login-background-wrapper">
+          <img className="login-background-image" alt="background" src={require('../../assets/login-background-cover.jpeg')}></img>
+          {/* <img className="login-background-image" src={require('../../assets/wp5924579-waifu-anime-wallpapers.png')}></img> */}
+        </div>
+        <div className="login-body">
+          <div className="login-content">
+            <h1>Sign In</h1>
+            <form className="login-form" onSubmit={handleSubmit}>
+                {errors.length ? addErrors() : <></> }
+                <input
+                  type="text"
+                  id='email'
+                  placeholder='Email'
+                  className='login-text-field'
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  id='password'
+                  placeholder='Password'
+                  className='login-text-field'
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              <button className="login-signin-button" type="submit">Sign In</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }
 
