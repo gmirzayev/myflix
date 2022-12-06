@@ -1,0 +1,32 @@
+.signup-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-bottom: 0;
+}
+
+.signup-header {
+    border-bottom: 1px solid #e6e6e6;
+    background-color: white;
+    height: 90px;
+    position: relative;
+}
+
+.signup-main-container {
+    padding-bottom: 95px;
+    flex-grow: 1;
+    background-color: white;
+    overflow: hidden;
+    width: 100%;
+}
+
+.signup-main-center {
+    box-sizing: border-box;
+    margin: 0 auto 15px;
+    max-width: 978px;
+}
+
+.signup-form {
+    display: block;
+    margin-top: 0em;
+}

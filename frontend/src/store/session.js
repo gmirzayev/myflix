@@ -27,7 +27,7 @@ const storeCurrentUser = user => {
 }
 
 export const storeEmail = email => {
-  if (email) sessionStorage.setItem("currentEmail", JSON.stringify(email));
+  if (email) sessionStorage.setItem("currentEmail", email);
 }
 
 export const login = ({ email, password }) => async dispatch => {
@@ -52,6 +52,7 @@ export const restoreSession = () => async dispatch => {
 
 export const signup = (user) => async (dispatch) => {
   const { email, password } = user;
+  debugger
   const response = await csrfFetch("/api/users", {
     method: "POST",
     body: JSON.stringify({

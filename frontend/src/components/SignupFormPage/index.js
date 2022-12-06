@@ -7,16 +7,16 @@ import * as sessionActions from "../../store/session";
 const SignupFormPage = () => {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
-  const [email, setEmail] = useState("");
+  const savedEmail = sessionStorage.getItem("currentEmail");
+  const [email, setEmail] = useState(savedEmail);
   const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
   if (sessionUser) return <Redirect to="/browse" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (password === confirmPassword) {
+    if (password) {
       setErrors([]);
       return dispatch(sessionActions.signup({ email, password }))
         .catch(async (res) => {
@@ -32,45 +32,43 @@ const SignupFormPage = () => {
         else setErrors([res.statusText]);
       });
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    // return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
-    </>
+    <div className="signup-page">
+      <div className="signup-header">
+
+      </div>
+      <div className="signup-main-container">
+        <div className="signup-main-center">
+          <form className="signup-form" onSubmit={handleSubmit}>
+            <ul>
+              {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
+            <label>
+              Email
+              <input
+                type="text"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </label>
+            <label>
+              Password
+              <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </label>
+            <button type="submit">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
 
