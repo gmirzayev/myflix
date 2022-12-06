@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import './Splash.css';
@@ -7,10 +7,22 @@ import * as sessionActions from "../../store/session";
 
 const SplashPage = () => {
     const history = useHistory();
-    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
     const [email, setEmail] = useState("");
     const [errors, setErrors] = useState([]);
+    const [checkEmail, setCheckEmail] = useState(false);
+
+    useEffect(() => {
+        if(checkEmail) {
+            if(email.length < 5) {
+                setErrors(["Email is required!"])
+            } else if(!isValidEmail(email)) {
+                setErrors(["Please enter a valid email address"])
+            } else {
+                setErrors([""])
+            }
+        }
+    }, [email, checkEmail])
 
     if (sessionUser) return <Redirect to="/browse" />;
 
@@ -25,16 +37,6 @@ const SplashPage = () => {
             history.push('/signup');
         }
     };
-
-    const handleEmailChange = (e) => {
-        setErrors([""])
-        if(email.length < 5) {
-            setErrors(["Email is required!"])
-        } else if(!isValidEmail(email)) {
-            setErrors(["Please enter a valid email address"])
-        }
-        setEmail(e.target.value);
-    }
 
     return (
         <div>
@@ -66,19 +68,25 @@ const SplashPage = () => {
                     <h2>Watch anywhere. Cancel anytime.</h2>
                     <form className="email-form" onSubmit={handleSubmit}>
                         <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
-                        <div class="splash-email-wrapper">
+                        <div className="splash-email-wrapper">
                             <input
                                 type="email"
                                 value={email}
                                 placeholder="Email address"
-                                onChange={handleEmailChange}
+                                className="splash-email-input"
+                                onChange={(e) => setEmail(e.target.value)}
+                                onBlur={() => setCheckEmail(true)}
                                 required
                             />
-                            <ul>
+                            <button type="submit" className="splash-signup-button">
+                                <span className="splash-signup-text">
+                                    Get Started
+                                </span>
+                            </button>
+                        </div>
+                        <ul>
                             {errors.map(error => <li key={error}>{error}</li>)}
                             </ul>
-                            <button type="submit">Sign Up</button>
-                        </div>
                     </form>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import './SignupForm.css';
 import * as sessionActions from "../../store/session";
 
@@ -38,7 +38,7 @@ const SignupFormPage = () => {
   return (
     <div className="signup-page">
       <div className="signup-header">
-
+        <Link to={'/login'} className="signup-signin-link">Sign In</Link>
       </div>
       <div className="signup-main-container">
         <div className="signup-main-center">
@@ -46,25 +46,29 @@ const SignupFormPage = () => {
             <ul>
               {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
-            <label>
-              Email
-              <input
-                type="text"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </label>
-            <label>
-              Password
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </label>
-            <button type="submit">Sign Up</button>
+            <span className="step-indicator">
+              STEP <b>1</b> OF <b>1</b>
+            </span>
+            <h1 className="step-title">Create a password to start your membership</h1>
+            <div className="step-description-row-1">Just a few more steps and you're done!</div>
+            <div className="step-description-row-2">We hate paperwork, too.</div>
+            <input
+              type="text"
+              value={email}
+              placeholder="Email"
+              className="signup-input email-input"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              value={password}
+              placeholder="Add a password"
+              className="signup-input password-input"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit" className="signup-button">Sign Up</button>
           </form>
         </div>
       </div>
