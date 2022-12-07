@@ -13,11 +13,9 @@ function App() {
           <SplashPage />
         </Route>
         <Route path="/login">
-          {/* <Navigation /> */}
           <LoginFormPage />
         </Route>
         <Route path="/signup">
-          {/* <Navigation /> */}
           <SignupFormPage />
         </Route>
         <Route path="/browse">

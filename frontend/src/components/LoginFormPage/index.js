@@ -25,7 +25,7 @@ const LoginFormPage = () => {
   if (sessionUser) {
     return <Redirect to="/browse" />;
   }
-
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
@@ -65,7 +65,8 @@ const LoginFormPage = () => {
     return (
         <ul>
             {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>)
+        </ul>
+    )
   }
 
   return (
