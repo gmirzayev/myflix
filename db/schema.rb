@@ -10,9 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_04_004810) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_07_040059) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contents", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description", null: false
+    t.integer "year", null: false
+    t.string "parental_rating", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "profile_id", null: false
+    t.integer "content_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id", "profile_id"], name: "index_likes_on_content_id_and_profile_id", unique: true
+  end
+
+  create_table "lists", force: :cascade do |t|
+    t.integer "profile_id", null: false
+    t.integer "content_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content_id", "profile_id"], name: "index_lists_on_content_id_and_profile_id", unique: true
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "picture", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "name"], name: "index_profiles_on_user_id_and_name", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
@@ -24,4 +58,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_004810) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
+  create_table "videos", force: :cascade do |t|
+    t.integer "content_id", null: false
+    t.string "title", null: false
+    t.text "description", null: false
+    t.integer "runtime", null: false
+    t.integer "season", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "likes", "contents"
+  add_foreign_key "likes", "profiles"
+  add_foreign_key "lists", "contents"
+  add_foreign_key "lists", "profiles"
+  add_foreign_key "profiles", "users"
+  add_foreign_key "videos", "contents"
 end
