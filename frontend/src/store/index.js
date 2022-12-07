@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import profileReducer from "./profiles";
 import sessionReducer from "./session";
 import userReducer from "./users";
 
@@ -16,7 +17,8 @@ if (process.env.NODE_ENV === 'production') {
 
 const rootReducer = combineReducers({
     user: userReducer,
-    session: sessionReducer
+    session: sessionReducer,
+    profile: profileReducer
 });
 
 const configureStore = (preloadedState={}) => {
