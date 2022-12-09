@@ -1,9 +1,8 @@
 import { csrfFetch } from './csrf';
 
 const RECEIVE_PROFILES = 'profiles/receiveProfiles';
-const ADD_PROFILE = 'profiles/addProfile';
+const RECEIVE_PROFILE = 'profiles/receiveProfile';
 const REMOVE_PROFILE = 'profiles/removeProfile';
-const EDIT_PROFILE = 'profiles/editProfile';
 
 const receiveProfiles = (profiles) => {
     return {
@@ -19,16 +18,9 @@ const removeProfile = (profileId) => {
     }
 }
 
-const addProfile = (profile) => {
+const receiveProfile = (profile) => {
     return {
-        type: ADD_PROFILE,
-        profile
-    }
-}
-
-const editProfile = (profile) => {
-    return {
-        type: EDIT_PROFILE,
+        type: RECEIVE_PROFILE,
         profile
     }
 }
@@ -36,7 +28,6 @@ const editProfile = (profile) => {
 export const getProfiles = (state) => {
     return state.profile ? Object.values(state.profile) : [];
 }
-// export const getPost = (postId) => (state) => state.posts ? state.posts[postId] : null;
   
 export const fetchProfiles = () => async dispatch => {
     const response = await csrfFetch("/api/profiles");
@@ -49,8 +40,6 @@ export const deleteProfile = (profileId) => async dispatch => {
         method: "DELETE"
     });
     dispatch(removeProfile(profileId));
-    // const data = await response.json();
-    // return data;
 }
 
 export const updateProfile = (profile) => async dispatch => {
@@ -60,7 +49,7 @@ export const updateProfile = (profile) => async dispatch => {
         headers: {'Content-Type': 'application/json'}
     })
     let data = await res.json();
-    dispatch(editProfile(data));
+    dispatch(receiveProfile(data));
 }
 
 export const createProfile = ({name, picture}) => async dispatch => {
@@ -73,7 +62,7 @@ export const createProfile = ({name, picture}) => async dispatch => {
         })
     })
     const data = await response.json();
-    dispatch(addProfile(data));
+    dispatch(receiveProfile(data));
 } 
 
 const profileReducer = (state = {}, action) => {
@@ -82,11 +71,11 @@ const profileReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_PROFILES:
             return {...newState, ...action.profiles};
+        case RECEIVE_PROFILE:
+            newState[action.profile.id] = action.profile;
+            return newState;
         case REMOVE_PROFILE:
             delete newState[action.profileId];
-            return newState;
-        case EDIT_PROFILE:
-            newState[action.profile.id] = action.profile;
             return newState;
         default:
             return state;

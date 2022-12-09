@@ -24,6 +24,7 @@ ApplicationRecord.transaction do
       password: 'password'
     )
 
+    puts "Creating profiles..."
     Profile.create!(
       name: 'Demo',
       picture: 'bomb',
@@ -40,6 +41,37 @@ ApplicationRecord.transaction do
       name: 'Adam',
       picture: 'apple',
       user_id: user.id
+    )
+
+    #  id              :bigint           not null, primary key
+  #  title           :string           not null
+  #  description     :text             not null
+  #  year            :integer          not null
+  #  parental_rating :string           not null
+
+    puts "Creating content"
+
+    content = Content.create!(
+      title: 'Arcane',
+      description: 'Based on true events',
+      year: 2021,
+      parental_rating: 'TV-14'
+    )
+
+    #  content_id  :integer          not null
+    #  title       :string           not null
+    #  description :text             not null
+    #  runtime     :integer          not null
+    #  season      :integer          not null
+
+    puts "Creating video"
+
+    Video.create!(
+      content_id: content.id,
+      title: 'Welcome to the Playground',
+      description: 'Bring trouble',
+      runtime: 43,
+      season: 1
     )
   
     # More users

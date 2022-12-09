@@ -12,4 +12,7 @@
 #  updated_at  :datetime         not null
 #
 class Video < ApplicationRecord
+    validates :content_id, :title, :description, :runtime, :season, presence: true
+
+    belongs_to :content
 end

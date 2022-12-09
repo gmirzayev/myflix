@@ -11,4 +11,7 @@
 #  updated_at      :datetime         not null
 #
 class Content < ApplicationRecord
+    validates :title, :description, :year, :parental_rating, presence: true
+
+    has_many :videos
 end
