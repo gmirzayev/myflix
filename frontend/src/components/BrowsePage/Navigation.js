@@ -31,7 +31,7 @@ const Navigation = () => {
       return (
       <li className="profile-switch" key={profile.id} value={profile.id} onClick={handleProfileSwitch}>
         <img className="profile-picture-icon" src={require('../../assets/poro.png')} alt="profile"></img>
-        {profile.name}
+        <span>{profile.name}</span>
       </li>
       )
   })

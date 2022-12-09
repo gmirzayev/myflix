@@ -1,18 +1,24 @@
 import { setCurrentProfile } from "../../store/session";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import './ProfileItem.css';
 
 const ProfileItem = (props) => {
     const dispatch = useDispatch();
-    const {profile} = props;
+    const {profile, editable} = props;
+    const history = useHistory();
 
     const handleProfilePick = () => {
         dispatch(setCurrentProfile(profile));
     }
 
+    const handleProfileEdit = () => {
+        history.push('/')
+    }
+
     return (
         <li className="profile">
-            <div className="profile-item" onClick={handleProfilePick}>
+            <div className="profile-item" onClick={editable ? handleProfileEdit : handleProfilePick}>
                 <div className="profile-picture">
                     {/* <img src={require('../../assets/poro.png')}></img> */}
                 </div>

@@ -1,8 +1,7 @@
 class Api::ProfilesController < ApplicationController
-    # before_action :require_logged_in, only: [:index, :create, :show, :update, :destroy]
+    before_action :require_logged_in, only: [:index, :create, :update, :destroy]
 
     def index 
-        # user = User.first
         user = current_user
         @profiles = user.profiles
         if @profiles
@@ -12,20 +11,9 @@ class Api::ProfilesController < ApplicationController
         end
     end
 
-    # def show
-    #     user = current_user
-    #     @profile = user.profiles
-    #     if @profile
-    #         render 'api/profiles/show'
-    #     else
-    #         render json: { profiles: nil }
-    #     end
-    # end
-
     def create
         @profile = Profile.new(profile_params)
         @profile.user_id = current_user.id
-        debugger
 
         if @profile.save
             render :show
@@ -35,7 +23,12 @@ class Api::ProfilesController < ApplicationController
     end
 
     def update 
-        
+        @profile = Profile.find_by(id: params[:id])
+        if @profile.update(profile_params)
+            render :show
+          else
+            render json: @profile.errors.full_messages, status: 422
+          end
     end
 
     def destroy

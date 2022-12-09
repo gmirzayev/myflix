@@ -1,7 +1,6 @@
 .main-header {
     height: 70px;
     background-color: transparent;
-    border-bottom: 1px solid gray;
     z-index: 2;
     background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
     padding: 0 4%;
@@ -84,6 +83,10 @@
 
 .profile-switch img {
     margin-right: 10px;
+}
+
+.profile-switch span:hover {
+    text-decoration: underline;
 }
 
 .dropdown-button {

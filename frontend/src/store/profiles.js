@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const RECEIVE_PROFILES = 'profiles/receiveProfiles';
 const ADD_PROFILE = 'profiles/addProfile';
 const REMOVE_PROFILE = 'profiles/removeProfile';
+const EDIT_PROFILE = 'profiles/editProfile';
 
 const receiveProfiles = (profiles) => {
     return {
@@ -25,6 +26,13 @@ const addProfile = (profile) => {
     }
 }
 
+const editProfile = (profile) => {
+    return {
+        type: EDIT_PROFILE,
+        profile
+    }
+}
+
 export const getProfiles = (state) => {
     return state.profile ? Object.values(state.profile) : [];
 }
@@ -37,12 +45,22 @@ export const fetchProfiles = () => async dispatch => {
 };
 
 export const deleteProfile = (profileId) => async dispatch => {
-    const response = await csrfFetch(`/api/profiles/${profileId}`, {
+    await csrfFetch(`/api/profiles/${profileId}`, {
         method: "DELETE"
     });
     dispatch(removeProfile(profileId));
     // const data = await response.json();
     // return data;
+}
+
+export const updateProfile = (profile) => async dispatch => {
+    let res = await csrfFetch(`/api/profiles/${profile.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(profile),
+        headers: {'Content-Type': 'application/json'}
+    })
+    let data = await res.json();
+    dispatch(editProfile(data));
 }
 
 export const createProfile = ({name, picture}) => async dispatch => {
@@ -66,6 +84,9 @@ const profileReducer = (state = {}, action) => {
             return {...newState, ...action.profiles};
         case REMOVE_PROFILE:
             delete newState[action.profileId];
+            return newState;
+        case EDIT_PROFILE:
+            newState[action.profile.id] = action.profile;
             return newState;
         default:
             return state;

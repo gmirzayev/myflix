@@ -5,7 +5,7 @@ import './Profile.css';
 import { getProfiles, fetchProfiles } from "../../store/profiles";
 import ProfileItem from "./ProfileItem";
 
-const ProfilePage = () => {
+const ProfilePage = ({editable}) => {
     const dispatch = useDispatch();
     const profiles = useSelector(getProfiles);
     const sessionProfile = useSelector(state => state.session.profile);
@@ -19,7 +19,7 @@ const ProfilePage = () => {
     }
 
     const generateProfileItems = profiles.map((profile) => {
-        return <ProfileItem key={profile.id} profile={profile} />;
+        return <ProfileItem key={profile.id} profile={profile} editable={editable}/>;
     })
 
     return (

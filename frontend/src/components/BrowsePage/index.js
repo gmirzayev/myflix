@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Redirect } from 'react-router-dom';
+import ProfilePage from "../ProfilePage";
 import './browse.css';
 import Navigation from "./Navigation";
 
@@ -9,15 +10,20 @@ const BrowsePage = () => {
 
     if (!sessionUser) return <Redirect to="/login" />;
 
-    if(!sessionProfile) return <Redirect to="/profiles" />;
+    // if(!sessionProfile) return <Redirect to="/profiles" />;
 
-    return (
-        <div className="browse-page">
-            <Navigation />
-            <div className="browse-main">
-                <span>Browse</span>
-            </div>
-        </div>
+    return ( 
+        <>
+            {sessionProfile ? 
+            (<div className="browse-page">
+                <Navigation />
+                <div className="browse-main">
+                    <span>Browse</span>
+                </div>
+            </div>) : 
+            <ProfilePage />
+            }
+        </>
     )
 
 }

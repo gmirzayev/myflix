@@ -22,8 +22,8 @@ function App() {
         <Route path="/browse">
           <BrowsePage />
         </Route>
-        <Route path="/profiles">
-          <ProfilePage />
+        <Route path="/profiles/manage">
+          <ProfilePage editable={true}/>
         </Route>
       </Switch>
     </>
