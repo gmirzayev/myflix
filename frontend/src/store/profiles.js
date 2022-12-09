@@ -4,9 +4,6 @@ const RECEIVE_PROFILES = 'profiles/receiveProfiles';
 const ADD_PROFILE = 'profiles/addProfile';
 const REMOVE_PROFILE = 'profiles/removeProfile';
 
-const SET_CURRENT_PROFILE = 'profiles/setCurrentProfile';
-const REMOVE_CURRENT_PROFILE = 'profiles/removeCurrentProfile';
- 
 const receiveProfiles = (profiles) => {
     return {
         type: RECEIVE_PROFILES,
@@ -28,29 +25,15 @@ const addProfile = (profile) => {
     }
 }
 
-const setCurrentProfile = (profile) => {
-    return {
-      type: SET_CURRENT_PROFILE,
-      profile
-    };
-};
-
-const removeCurrentProfile = () => {
-    return {
-        type: REMOVE_CURRENT_PROFILE
-    };
-};
-
-const storeCurrentProfile = profile => {
-    if (profile) sessionStorage.setItem("currentProfile", JSON.stringify(profile));
-    else sessionStorage.removeItem("currentProfile");
+export const getProfiles = (state) => {
+    return state.profile ? Object.values(state.profile) : [];
 }
-
-export const getProfiles = () => async dispatch => {
+// export const getPost = (postId) => (state) => state.posts ? state.posts[postId] : null;
+  
+export const fetchProfiles = () => async dispatch => {
     const response = await csrfFetch("/api/profiles");
     const data = await response.json();
     dispatch(receiveProfiles(data));
-    return data;
 };
 
 export const deleteProfile = (profileId) => async dispatch => {
@@ -73,7 +56,6 @@ export const createProfile = ({name, picture}) => async dispatch => {
     })
     const data = await response.json();
     dispatch(addProfile(data));
-    return data;
 } 
 
 const profileReducer = (state = {}, action) => {
@@ -85,10 +67,6 @@ const profileReducer = (state = {}, action) => {
         case REMOVE_PROFILE:
             delete newState[action.profileId];
             return newState;
-        case SET_CURRENT_PROFILE:
-            return { ...newState, profile: action.profile };
-        case REMOVE_CURRENT_PROFILE:
-            return { ...newState, profile: null };
         default:
             return state;
     }

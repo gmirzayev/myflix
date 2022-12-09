@@ -3,6 +3,9 @@ import { csrfFetch } from './csrf';
 const SET_CURRENT_USER = 'session/setCurrentUser';
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser';
 
+const SET_CURRENT_PROFILE = 'profiles/setCurrentProfile';
+const REMOVE_CURRENT_PROFILE = 'profiles/removeCurrentProfile';
+
 const setCurrentUser = (user) => {
   return {
     type: SET_CURRENT_USER,
@@ -16,14 +19,32 @@ const removeCurrentUser = () => {
   };
 };
 
-const storeCSRFToken = response => {
-  const csrfToken = response.headers.get("X-CSRF-Token");
-  if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
-}
-
 const storeCurrentUser = user => {
   if (user) sessionStorage.setItem("currentUser", JSON.stringify(user));
   else sessionStorage.removeItem("currentUser");
+}
+
+export const setCurrentProfile = (profile) => {
+  return {
+    type: SET_CURRENT_PROFILE,
+    profile
+  };
+};
+
+export const removeCurrentProfile = () => {
+  return {
+      type: REMOVE_CURRENT_PROFILE
+  };
+};
+
+export const storeCurrentProfile = profile => {
+  if (profile) sessionStorage.setItem("currentProfile", JSON.stringify(profile));
+  else sessionStorage.removeItem("currentProfile");
+}
+
+const storeCSRFToken = response => {
+  const csrfToken = response.headers.get("X-CSRF-Token");
+  if (csrfToken) sessionStorage.setItem("X-CSRF-Token", csrfToken);
 }
 
 export const storeEmail = email => {
@@ -76,7 +97,8 @@ export const logout = () => async (dispatch) => {
 };
 
 const initialState = { 
-  user: JSON.parse(sessionStorage.getItem("currentUser"))
+  user: JSON.parse(sessionStorage.getItem("currentUser")),
+  profile: JSON.parse(sessionStorage.getItem("currentProfile"))
 };
 
 const sessionReducer = (state = initialState, action) => {
@@ -84,11 +106,15 @@ const sessionReducer = (state = initialState, action) => {
     let newState = {...state};
     switch (action.type) {
         case SET_CURRENT_USER:
-        return { ...newState, user: action.payload };
+          return { ...newState, user: action.payload };
         case REMOVE_CURRENT_USER:
-        return { ...newState, user: null };
+          return { ...newState, user: null };
+        case SET_CURRENT_PROFILE:
+          return { ...newState, profile: action.profile };
+        case REMOVE_CURRENT_PROFILE:
+          return { ...newState, profile: null };
         default:
-        return state;
+          return state;
     }
 };
 

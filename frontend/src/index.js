@@ -10,7 +10,7 @@ import { restoreSession, csrfFetch } from './store/csrf';
 import * as sessionActions from './store/session'; 
 import * as profileActions from './store/profiles';
 
-const store = configureStore();
+const store = configureStore(); 
 
 if (process.env.NODE_ENV !== 'production') {
   window.store = store;

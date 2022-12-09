@@ -7,13 +7,11 @@ function ProfileButton({ user }) {
   const [showMenu, setShowMenu] = useState(false);
   
   const openMenu = () => {
-    console.log("open");
     if (showMenu) return;
     setShowMenu(true);
   };
 
   const closeMenu = () => {
-    console.log("close");
   setShowMenu(false);
 };
   
@@ -35,14 +33,22 @@ function ProfileButton({ user }) {
     dispatch(sessionActions.logout());
   };
 
+  const switchProfile = (e) => {
+    e.preventDefault();
+    dispatch(sessionActions.removeCurrentProfile());
+  }
+
   return (
     <>
       <button onClick={showMenu? closeMenu : openMenu}>Click me</button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.email}</li>
+          <li></li>
           <li>
             <button onClick={logout}>Log Out</button>
+          </li>
+          <li>
+            <button onClick={switchProfile}>Switch Profile</button>
           </li>
         </ul>
       )}

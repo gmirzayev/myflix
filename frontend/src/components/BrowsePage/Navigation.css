@@ -1,0 +1,142 @@
+.main-header {
+    height: 70px;
+    background-color: transparent;
+    border-bottom: 1px solid gray;
+    z-index: 2;
+    background-image: linear-gradient(180deg,rgba(0,0,0,.7) 10%,transparent);
+    padding: 0 4%;
+    display: flex;
+    position: relative;
+    align-items: center;
+    display: flex;
+}
+
+.main-navigation {
+    align-items: center;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navlink-tab {
+    margin-left: 20px;
+}
+
+.main-navigation-navlink {
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.second-navigation {
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+    justify-content: flex-end;
+    position: absolute;
+    right: 4%;
+    top: 0;
+}
+
+.dropdown-account {
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height: 300px;
+}
+
+.second-navigation-dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    padding: 0;
+    top: 52px;
+    width: 220px;
+    background-color: rgba(0,0,0,.9);
+    border: 1px solid hsla(0,0%,100%,.15);
+    box-sizing: border-box;
+    color: white;
+    cursor: default;
+    font-size: 13px;
+    line-height: 21px;
+    height: auto;
+}
+
+.active {
+    display: block;
+}
+
+.select-profile-list {
+    height: auto;
+    overflow: hidden;
+    padding: 10px 0 5px;
+    display: block;
+    margin: 0;
+    width: 100%;
+    cursor: default;
+}
+
+.profile-switch {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.profile-switch img {
+    margin-right: 10px;
+}
+
+.dropdown-button {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    width: 100%;
+}
+
+.profile-picture-icon {
+    border-radius: 4px;
+    height: 32px;
+    vertical-align: middle;
+    width: 32px;
+}
+
+.profile-arrow {
+    border-color: #fff transparent transparent;
+    border-style: solid;
+    border-width: 5px 5px 0;
+    height: 0;
+    margin-left: 10px;
+    transition: transform 367ms cubic-bezier(.21,0,.07,1);
+    width: 0;
+}
+
+.logout-container {
+    border-top: 1px solid hsla(0, 0%, 100%, .25);
+    padding: 10px 0;
+    height: auto;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.logout {
+    padding: 5px 10px;
+    box-sizing: border-box;
+    line-height: 16px;
+    font-size: 13px;
+}
+
+.logout-button {
+    text-align: center;
+    display: inline-block;
+    text-transform: none;
+    width: 100%;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    text-decoration: underline;
+}

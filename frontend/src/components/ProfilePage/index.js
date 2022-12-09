@@ -1,23 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import './Profile.css';
-import * as sessionActions from "../../store/session";
-import { getProfiles } from "../../store/profiles";
+import { getProfiles, fetchProfiles } from "../../store/profiles";
 import ProfileItem from "./ProfileItem";
 
 const ProfilePage = () => {
     const dispatch = useDispatch();
-    const profiles = useSelector(getProfiles());
+    const profiles = useSelector(getProfiles);
     const sessionProfile = useSelector(state => state.session.profile);
 
+    useEffect(() => {
+        dispatch(fetchProfiles());
+    }, [dispatch])
+
+    if (sessionProfile) {
+        return <Redirect to="/browse" />;
+    }
+
     const generateProfileItems = profiles.map((profile) => {
-        return <ProfileItem key={profile.id} />;
+        return <ProfileItem key={profile.id} profile={profile} />;
     })
 
     return (
-        <div>
-            {generateProfileItems}
+        <div className="profile-page">
+            <div className="profile-centered-container">
+                <div className="profile-container">
+                    <h1>Who's watching?</h1>
+                    <ul>
+                        {generateProfileItems}
+                    </ul>
+                </div>
+            </div>   
         </div>
     )
 }

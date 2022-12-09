@@ -1,0 +1,46 @@
+.profile {
+    margin: 0 2vw 0 0;
+    max-width: 200px;
+    min-width: 84px;
+    width: 10vw;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+}
+
+.profile-item {
+    /* width: 400px;
+    height: 400px;
+    border: 10px solid black; */
+    cursor: pointer;
+}
+
+.profile-picture {
+    background-image: url('../../assets/poro.png');
+    background-color: #333;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height: 10vw;
+    max-height: 200px;
+    max-width: 200px;
+    min-height: 84px;
+    min-width: 84px;
+    position: relative;
+    text-decoration: none;
+    width: 10vw;
+}
+
+.profile-name {
+    color: grey;
+    display: block;
+    font-size: 1.3vw;
+    line-height: 1.2em;
+    margin: 0.6em 0;
+    min-height: 1.8em;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+}

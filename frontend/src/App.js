@@ -2,9 +2,9 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
-import Navigation from "./components/Navigation";
 import SplashPage from "./components/SplashPage";
 import ProfilePage from "./components/ProfilePage";
+import BrowsePage from "./components/BrowsePage";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
           <SignupFormPage />
         </Route>
         <Route path="/browse">
-          <Navigation />
+          <BrowsePage />
         </Route>
         <Route path="/profiles">
           <ProfilePage />
