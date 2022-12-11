@@ -17,4 +17,22 @@ class Profile < ApplicationRecord
 
     belongs_to :user
 
+    has_many :saves,
+        class_name: "Save",
+        foreign_key: :profile_id
+
+    has_many :likes
+    has_many :watchings
+
+    has_many :saved_contents,
+        through: :saves,
+        source:  :content
+
+    has_many :liked_contents,
+        through: :likes,
+        source:  :content
+
+    has_many :videos_watching,
+        through: :watchings,
+        source:  :video
 end

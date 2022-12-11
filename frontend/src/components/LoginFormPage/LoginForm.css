@@ -1,15 +1,10 @@
 .login-page {
-    font-family: 'Roboto', sans-serif;
-}
-
-.login-header {
-    background: linear-gradient(180deg,rgba(0,0,0,.5) 0,transparent);
-    border-bottom: transparent;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 90px;
+    font-family: 'NetflixRegular';
+    background-color: black;
+    min-height: 100%;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
 }
 
 .login-background-wrapper {
@@ -21,6 +16,7 @@
     position: absolute;
     width: 100%;
     z-index: -1;
+    opacity: .5;
 }
 
 .login-background-image {
@@ -28,12 +24,40 @@
     min-width: 100%;
 }
 
+.login-header {
+    background: linear-gradient(180deg,rgba(0,0,0,.5) 0,transparent);
+    border-bottom: transparent;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 90px;
+}
+
+.logo-link-wrapper {
+    margin-left: 3%;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.logo-root {
+    font-size: 40px;
+    color: red;
+    text-decoration: none;
+    cursor: pointer;
+    /* vertical-align: middle;
+    height: 45px;
+    width: 167px; */
+}
+
 .login-body {
     background-color: transparent;
+    margin: 0 auto;
+    margin-bottom: -236px;
+    padding: 0 5%;
+
     max-width: 450px;
     min-height: 100vh;
-    margin: 0 auto;
-    display: block;
 }
 
 .login-body::before {
@@ -42,28 +66,45 @@
     height: 91px;
 }
 
+.login-body::after {
+    content: "";
+    display: block;
+    height: 236px;
+}
+
 .login-content {
     min-height: 660px;
-    box-sizing: border-box;
-    width: 100%;
-    background-color: rgba(0,0,0,.75);
     margin-bottom: 90px;
     padding: 60px 68px 40px;
     border-radius: 4px;
+
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,.75);
+    display: flex;
+    flex-direction: column;
 }
 
 .login-content h1 {
     font-size: 32px;
     font-weight: 500;
-    margin-bottom: 28px;
     color: white;
+    margin: 0 0 10px;
+    margin-bottom: 28px;
+    padding: 0;
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
+    /* flex-grow: 1; */
+    margin-bottom: 0;
+}
+
+.login-field-container {
+    padding-bottom: 16px;
+    position: relative;
+}
+
+.field-wrapper {
+    position: relative;
 }
 
 .login-text-field {
@@ -73,11 +114,43 @@
     height: 50px;
     line-height: 50px;
     padding: 16px 20px 0;
+
     background: #333;
+    
     box-sizing: border-box;
     display: block;
     font-size: 16px;
-    margin-bottom: 20px;
+    width: 100%;
+}
+
+.login-text-field:focus {
+    outline: none;
+    background-color: #454545;
+}
+
+.placeholder-label {
+    left: 20px;
+    font-size: 16px;
+    color: #8c8c8c;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition:font .1s ease, top .1s ease, transform .1s ease;
+    /* font-size: 11px; 
+    top: 4px; 
+    transform: translateY(0); */
+}
+
+.login-text-field:focus+.placeholder-label {
+    font-size: 11px; 
+    top: 4px; 
+    transform: translateY(0);
+}
+
+.hasText {
+    font-size: 11px; 
+    top: 4px; 
+    transform: translateY(0);
 }
 
 .login-signin-button {
@@ -97,6 +170,37 @@
     cursor: pointer;
 }
 
-.login-email-error {
+#demo {
+    margin-top: 0;
+}
+
+.login-field-error {
+    color: #e87c03;
+    margin-bottom: -6px;
+    padding: 6px 3px;
+    font-size: 13px;
+}
+
+.login-submit-error {
+    background-color: #e87c03;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 0 0 16px;
     color: white;
+    padding: 10px 20px;
+}
+
+.login-signup-holder {
+    color: #737373;
+    font-size: 16px;
+}
+
+.login-signup-button {
+    margin-left: 5px;
+    text-decoration: none;
+    color: white;
+}
+
+.login-signup-button:hover {
+text-decoration: underline;
 }

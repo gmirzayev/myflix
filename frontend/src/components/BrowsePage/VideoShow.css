@@ -1,0 +1,9 @@
+video {
+    position: fixed;
+    width: 10vw;
+    height: 10vh;
+    top:0;
+    left: 0;
+    z-index: 10;
+    background-color: black;
+}
