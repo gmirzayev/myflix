@@ -17,4 +17,7 @@ class Video < ApplicationRecord
     validates :content_id, :title, :description, :runtime, :season, :episode, presence: true
 
     belongs_to :content
+
+    has_many :watchings,
+        dependent: :destroy
 end

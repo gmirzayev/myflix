@@ -11,14 +11,19 @@
 #  updated_at      :datetime         not null
 #
 class Content < ApplicationRecord
-    validates :title, :description, :year, :parental_rating, presence: true
+    validates :title, :description, :year, :parental_rating, :category, presence: true
 
-    has_many :videos
-    has_many :likes
+    has_many :videos,
+        dependent: :destroy
+    has_many :likes,
+        dependent: :destroy
 
     has_many :saves,
         class_name: "Save",
-        foreign_key: :content_id
+        foreign_key: :content_id,
+        dependent: :destroy
 
     # has_one_attached :video_file
+    # has_one_attached :photo
 end
+

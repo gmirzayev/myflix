@@ -12,6 +12,16 @@ const receiveContents = (contents) => {
 export const getContents = (state) => {
     return state.content ? Object.values(state.content) : [];
 }
+
+export const getContentsByCategory = (category) => (state) => {
+    let content = [];
+    for(let i = 1; i <= Object.keys(state.content).length; i++) {
+        if(state.content[i].category === category) {
+            content.push(state.content[i]);
+        }
+    }
+    return state.content ? content : [];
+}
   
 export const fetchContents = () => async dispatch => {
     const response = await csrfFetch(`/api/contents`);

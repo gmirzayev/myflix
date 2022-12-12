@@ -60,21 +60,24 @@ ApplicationRecord.transaction do
       title: "Arcane",
       description: "Amid the stark discord of twin cities Piltover and Zaun, two sisters fight on rival sides of a war between magic technologies and clashing convictions.",
       year: 2021,
-      parental_rating: "TV-14"
+      parental_rating: "TV-14",
+      category: "Animated"
     )
 
     content2 = Content.create!(
       title: "Breaking Bad",
       description: "A high school chemistry teacher dying of cancer teams with a former student to secure his family's future by manufacturing and selling crystal meth.",
       year: 2013,
-      parental_rating: "TV-MA"
+      parental_rating: "TV-MA",
+      category: "Drama"
     )
 
     content3 = Content.create!(
       title: "Snatch",
       description: "Two boxing promoters inadvertently get roped into a diamond heist when a gangster with an 84-carat gem and a gambling problem arrives in London.",
       year: 2000,
-      parental_rating: "R"
+      parental_rating: "R",
+      category: "Action"
     )
 
     #  content_id  :integer          not null

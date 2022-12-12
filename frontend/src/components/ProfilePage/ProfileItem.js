@@ -1,4 +1,4 @@
-import { setCurrentProfile } from "../../store/session";
+import { setCurrentProfile, storeCurrentProfile } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import './ProfileItem.css';
@@ -10,6 +10,7 @@ const ProfileItem = (props) => {
 
     const handleProfilePick = () => {
         dispatch(setCurrentProfile(profile));
+        dispatch(storeCurrentProfile(profile));
     }
 
     const handleProfileEdit = () => {

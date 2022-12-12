@@ -5,6 +5,7 @@ import SignupFormPage from "./components/SignupFormPage";
 import SplashPage from "./components/SplashPage";
 import ProfilePage from "./components/ProfilePage";
 import BrowsePage from "./components/BrowsePage";
+import VideoShowPage from "./components/VideoShowPage";
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
         </Route>
         <Route path="/signup">
           <SignupFormPage />
+        </Route>
+        <Route path="/browse/video/:videoId">
+          <VideoShowPage />
         </Route>
         <Route path="/browse">
           <BrowsePage />

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     resources :watchings, only: [:create, :destroy]
 
     resources :contents, only: [:index]
-    resources :video, only: [:index]
+    resources :videos, only: [:index, :show]
 
     resource :session, only: [:create, :show, :destroy]
 

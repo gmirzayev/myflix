@@ -5,7 +5,6 @@ import './browse.css';
 import Navigation from "./Navigation";
 import { csrfFetch } from "../../store/csrf";
 
-
 import { useState, useEffect } from 'react';
 import VideoShow from './VideoShow.js';
 import ContentIndex from "../ContentIndex";
@@ -25,7 +24,7 @@ const BrowsePage = () => {
       }, [dispatch]);
 
     if (!sessionUser) return <Redirect to="/login" />;
-    if (!sessionProfile) return <Redirect to="/profiles" />;
+    // if (!sessionProfile) return <Redirect to="/profiles" />;
 
     return ( 
         <>

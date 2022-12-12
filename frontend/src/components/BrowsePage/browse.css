@@ -1,7 +1,6 @@
 .browse-page {
     width: 100%;
-    /* overflow: hidden; */
-    /* z-index: 0; */
-    /* background-color: maroon; */
-    height: 600px;
+    background-color: #141414;
+    height: 100vh;
+    color: white;
 }

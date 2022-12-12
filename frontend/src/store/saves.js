@@ -28,7 +28,7 @@ const receiveSave = (save) => {
 export const getSaves = (state) => {
     return state.save ? Object.values(state.save) : [];
 }
-  
+
 export const fetchSaves = (profileId) => async dispatch => {
     const response = await csrfFetch(`/api/profiles/${profileId}/saves`);
     const data = await response.json();

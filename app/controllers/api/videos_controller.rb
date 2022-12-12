@@ -9,4 +9,13 @@ class Api::VideosController < ApplicationController
             render json: { videos: nil }
         end
     end
+
+    def show
+        @video = Video.find_by(id: params[:id])
+        if @video
+            render :show
+        else
+            render json: { video: nil }
+        end
+    end
 end

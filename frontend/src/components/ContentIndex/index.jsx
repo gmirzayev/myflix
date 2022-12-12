@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import './ContentIndex.css';
 import * as contentActions from '../../store/contents';
 import { useEffect } from "react";
+import ContentRow from "./ContentRow";
 
 const ContentIndex = () => {
 
@@ -12,17 +13,23 @@ const ContentIndex = () => {
         dispatch(contentActions.fetchContents());
     }, [dispatch])
 
-    const contentList = allContent.map((content) => {
-        return <li>{content.id}{content.title}</li>
+    let categoryList = [];
+    if(allContent) {
+        for(let i = 0; i < allContent.length; i++) {
+            if(!(allContent[i].category in categoryList)) {
+                categoryList.push(allContent[i].category)
+            }
+        }
+    }
+    const categoryRows = categoryList.map((category) => {
+        return <ContentRow key={category} category={category}/>
     })
 
     return (
-        <ul>
-            {contentList}
-        </ul>
+        <>
+            {allContent && categoryRows}
+        </>
     )
-
-
 }
 
 export default ContentIndex;

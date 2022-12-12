@@ -1,0 +1,15 @@
+.full-video {
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+}
+
+.video-back-button {
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 50px;
+    background-color: white;
+    height: 50px;
+    position: absolute;
+}
