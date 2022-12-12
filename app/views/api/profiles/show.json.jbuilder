@@ -1,1 +1,3 @@
-json.extract! @profile, :id, :name, :picture
+json.set! @profile.id do
+    json.extract! @profile, :id, :name, :picture
+end

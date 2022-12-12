@@ -1,8 +1,13 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
+import contentReducer from "./contents";
+import likeReducer from "./likes";
 import profileReducer from "./profiles";
+import saveReducer from "./saves";
 import sessionReducer from "./session";
 import userReducer from "./users";
+import videoReducer from "./videos";
+import watchingReducer from "./watchings";
 
 let enhancer;
 
@@ -18,7 +23,12 @@ if (process.env.NODE_ENV === 'production') {
 const rootReducer = combineReducers({
     user: userReducer,
     session: sessionReducer,
-    profile: profileReducer
+    profile: profileReducer,
+    like: likeReducer,
+    watching: watchingReducer,
+    save: saveReducer,
+    video: videoReducer,
+    content: contentReducer
 });
 
 const configureStore = (preloadedState={}) => {

@@ -29,8 +29,8 @@ export const getProfiles = (state) => {
     return state.profile ? Object.values(state.profile) : [];
 }
   
-export const fetchProfiles = () => async dispatch => {
-    const response = await csrfFetch("/api/profiles");
+export const fetchProfiles = (userId) => async dispatch => {
+    const response = await csrfFetch(`/api/users/${userId}/profiles`);
     const data = await response.json();
     dispatch(receiveProfiles(data));
 };

@@ -1,17 +1,12 @@
 class Api::ContentsController < ApplicationController
-    before_action :require_logged_in, only: [:index, :show]
+    before_action :require_logged_in, only: [:index]
 
     def index 
-        # user = current_user
-        # @profiles = user.profiles
-        # if @profiles
-        #     render :index
-        # else
-        #     render json: { profiles: nil }
-        # end
-    end
-
-    def show
-
+        @contents = Content.all
+        if @contents
+            render :index
+        else
+            render json: { contents: nil }
+        end
     end
 end

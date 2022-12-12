@@ -20,5 +20,5 @@ class Content < ApplicationRecord
         class_name: "Save",
         foreign_key: :content_id
 
-    has_one_attached :video_file
+    # has_one_attached :video_file
 end

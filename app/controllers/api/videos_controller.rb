@@ -1,5 +1,5 @@
 class Api::VideosController < ApplicationController
-    before_action :require_logged_in, only: [:index, :show]
+    before_action :require_logged_in, only: [:index]
 
     def index 
         @videos = Video.all
@@ -8,9 +8,5 @@ class Api::VideosController < ApplicationController
         else
             render json: { videos: nil }
         end
-    end
-
-    def show
-
     end
 end

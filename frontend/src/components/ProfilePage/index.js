@@ -8,10 +8,11 @@ import ProfileItem from "./ProfileItem";
 const ProfilePage = ({editable}) => {
     const dispatch = useDispatch();
     const profiles = useSelector(getProfiles);
+    const currentUser = useSelector(state => state.session.user)
     const sessionProfile = useSelector(state => state.session.profile);
 
     useEffect(() => {
-        dispatch(fetchProfiles());
+        dispatch(fetchProfiles(currentUser.id));
     }, [dispatch])
 
     if (sessionProfile) {
