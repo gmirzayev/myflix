@@ -36,3 +36,38 @@
 .profile-container ul {
     margin: 2em 0;
 }
+
+.edit-finish-button {
+    background: #fff;
+    border: 1px solid #fff;
+    color: #000;
+    font-weight: 500;
+    cursor: pointer;
+    /* display: block; */
+    font-size: 1.2vw;
+    letter-spacing: 2px;
+    margin: 2em 0 1em;
+    padding: 0.5em 1.5em;
+}
+
+.edit-finish-button:hover {
+    background: #c00;
+    border: 1px solid #c00;
+    color: white;
+}
+
+
+.manage-profile-button {
+    background-color: transparent;
+    border: 1px solid grey;
+    color: grey;
+    cursor: pointer;
+    font-size: 1.2vw;
+    margin: 2em 0 1em;
+    padding: 0.5em 1.5em;
+}
+
+.manage-profile-button:hover {
+    border-color: white;
+    color: white;
+}

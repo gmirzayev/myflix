@@ -1,7 +1,10 @@
 .content-item-container {
     width: 20%;
+    border-radius: 0.2vw;
+    
 }
 
 .content-item-picture {
     width: 200px;
+    border-radius: 0.2vw;
 }

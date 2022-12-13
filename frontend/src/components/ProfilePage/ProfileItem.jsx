@@ -14,7 +14,7 @@ const ProfileItem = (props) => {
     }
 
     const handleProfileEdit = () => {
-        history.push('/')
+        history.push(`/profiles/manage/${profile.id}`);
     }
 
     return (
@@ -23,6 +23,7 @@ const ProfileItem = (props) => {
                 <div className="profile-picture">
                     {/* <img src={require('../../assets/poro.png')}></img> */}
                 </div>
+                {editable && <div className="edit-overlay"></div>}
                 <span className="profile-name">{profile.name}</span>
             </div>
         </li>

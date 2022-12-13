@@ -21,7 +21,7 @@ export const getVideos = (state) => {
     return state.video ? Object.values(state.video) : [];
 }
 
-export const getVideo = (videoId) => (state) => {
+export const getVideo = ({videoId}) => (state) => {
     return state.video ? state.video[videoId] : {};
 }
   

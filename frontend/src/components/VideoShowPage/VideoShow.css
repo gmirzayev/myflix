@@ -5,11 +5,13 @@
 }
 
 .video-back-button {
-    z-index: 10;
+    z-index: 2;
     top: 0;
     left: 0;
     width: 50px;
-    background-color: white;
+    background-color: grey;
     height: 50px;
     position: absolute;
+    color: white;
+    
 }

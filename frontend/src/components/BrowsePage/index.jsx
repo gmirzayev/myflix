@@ -6,7 +6,7 @@ import Navigation from "./Navigation";
 import { csrfFetch } from "../../store/csrf";
 
 import { useState, useEffect } from 'react';
-import VideoShow from './VideoShow.js';
+import VideoShow from './VideoShow.jsx';
 import ContentIndex from "../ContentIndex";
 
 const BrowsePage = () => {
@@ -37,7 +37,7 @@ const BrowsePage = () => {
                     {/* <VideoShow video={video}/> */}
                 </div>
             </div>) : 
-            <ProfilePage />
+            <ProfilePage editable={false}/>
             }
         </>
     )
