@@ -11,6 +11,15 @@ class Api::ProfilesController < ApplicationController
         end
     end
 
+    def show
+        @profile = Profile.find_by(id: params[:id])
+        if @profile
+            render :show
+        else
+            render json: { profile: nil }
+        end
+    end
+
     def create
         @profile = Profile.new(profile_params)
         @profile.user_id = current_user.id

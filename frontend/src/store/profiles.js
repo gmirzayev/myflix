@@ -39,6 +39,12 @@ export const fetchProfiles = (userId) => async dispatch => {
     dispatch(receiveProfiles(data));
 };
 
+export const fetchProfile = (profileId) => async dispatch => {
+    const response = await csrfFetch(`/api/profiles/${profileId}`);
+    const data = await response.json();
+    dispatch(receiveProfile(data[profileId]));
+};
+
 export const deleteProfile = (profileId) => async dispatch => {
     await csrfFetch(`/api/profiles/${profileId}`, {
         method: "DELETE"

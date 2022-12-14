@@ -29,12 +29,10 @@ const BrowsePage = () => {
     return ( 
         <>
             {sessionProfile ? 
-            (<div className="browse-page">
+            (<div className="browse-page" id="browse-page">
                 <Navigation />
                 <div className="browse-main">
-                    <span>Browse</span>
                     <ContentIndex />
-                    {/* <VideoShow video={video}/> */}
                 </div>
             </div>) : 
             <ProfilePage editable={false}/>

@@ -27,9 +27,6 @@ function App() {
         <Route path="/browse">
           <BrowsePage />
         </Route>
-        <Route path="/profiles/manage/:profileId">
-          <EditProfilePage />
-        </Route>
         <Route path="/profiles/manage">
           <ProfilePage editable={true}/>
         </Route>

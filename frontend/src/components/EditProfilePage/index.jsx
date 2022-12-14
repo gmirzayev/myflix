@@ -3,23 +3,44 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 import './EditProfile.css';
-import { getProfile, getProfiles, fetchProfiles } from "../../store/profiles";
+import { getProfile, fetchProfile  } from "../../store/profiles";
 
-const EditProfilePage = () => {
-    const {profileId} = useParams();
-    const profile = useSelector(getProfile(profileId));
-    const [profileName, setProfileName] = useState(profile.name);
-    
+const EditProfilePage = ({editProfile}) => {
+    const [profileName, setProfileName] = useState(editProfile.name);
+    const handleSubmit = () => {
+
+    }
+
+    const handleCancel = () => {
+
+    }
+
+    const handleDelete = () => {
+
+    }
+
 
     return (
-        <div>
-            <form>
-                <input type="text" value={profileName} onChange={(e)=>setProfileName(e.target.value)}></input>
-                {/* <button type="submit" onClick={handleSubmit}>Save</button>
-                <button type="submit" onClick={handleCancel}>Cancel</button>
-                <button type="submit" onClick={handleDelete}>Delete Profile</button> */}
-            </form>
+        <>
+        <div className="edit-profile-page">
+            <div className="edit-container">
+                <div className="edit-content-wrapper">
+                    <h1 className="edit-profile-header">Edit Profile</h1>
+                    <form className="edit-profile-form">
+                        <div className="edit-picture-column">
+                            <img className="edit-picture" src={require('../../assets/poro.png')}></img>
+                        </div>
+                        <div className="edit-name-container">
+                            <input className="edit-name-input" type="text" value={profileName} onChange={(e)=>setProfileName(e.target.value)}></input>
+                        </div>
+                    </form>
+                    <button className="save-button" type="submit" onClick={handleSubmit}>Save</button>
+                    <button className="not-save-button" type="submit" onClick={handleCancel}>Cancel</button>
+                    <button className="not-save-button" type="submit" onClick={handleDelete}>Delete Profile</button>
+                </div>
+            </div>
         </div>
+        </>
     )
 
     // // const dispatch = useDispatch();

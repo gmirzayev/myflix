@@ -22,7 +22,7 @@ export const getContentsByCategory = (category) => (state) => {
     }
     return state.content ? content : [];
 }
-  
+
 export const fetchContents = () => async dispatch => {
     const response = await csrfFetch(`/api/contents`);
     const data = await response.json();

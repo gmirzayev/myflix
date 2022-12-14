@@ -10,3 +10,38 @@
     background-color: white;
     z-index: 10000; */
 }
+
+.preview-modal-container {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: -25px;
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 4px;
+}
+
+.preview-modal {
+    z-index: 3;
+    width: 300px;
+    /* height: 600px; */
+}
+
+.preview-modal-picture {
+    width: 100%;
+    height: auto;
+}
+
+.preview-modal-info {
+    width: 100%;
+    background-color: white;
+    color: white;
+}
+
+/* .modal-flex {
+    display: flex;
+    width: 100%;
+
+} */

@@ -1,12 +1,10 @@
 import { setCurrentProfile, storeCurrentProfile } from "../../store/session";
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
 import './ProfileItem.css';
 
 const ProfileItem = (props) => {
     const dispatch = useDispatch();
-    const {profile, editable} = props;
-    const history = useHistory();
+    const {profile, editable, setShowProfile, setEditProfile} = props;
 
     const handleProfilePick = () => {
         dispatch(setCurrentProfile(profile));
@@ -14,7 +12,8 @@ const ProfileItem = (props) => {
     }
 
     const handleProfileEdit = () => {
-        history.push(`/profiles/manage/${profile.id}`);
+        setEditProfile(profile);
+        setShowProfile(true);
     }
 
     return (
