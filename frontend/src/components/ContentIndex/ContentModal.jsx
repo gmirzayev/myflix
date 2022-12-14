@@ -1,9 +1,6 @@
-import React, { useState } from 'react';
-// import { Modal } from '../../context/Modal';
 import './ContentModal.css';
 import { useHistory } from "react-router-dom";
-// import ModalContentItem from '../ModalContentItem';
-// // {showModal, setShowModal}
+
 const ContentModal = ({content, onExit}) =>  {
   const history = useHistory();
   // :title, :description, :year, :parental_rating, :category, presence: true
@@ -18,7 +15,7 @@ const ContentModal = ({content, onExit}) =>  {
         <img src={require('../../assets/ArcaneImage.jpeg')} onClick={handleClick} className="preview-modal-picture"/>
         <div className="preview-modal-info">
           <div className="modal-interaction-row">
-            <span>Play</span>
+            <button onClick={handleClick}>Play</button>
           </div>
           <div className="rating-row">
             <span>{content.parentalRating}</span>
@@ -31,18 +28,5 @@ const ContentModal = ({content, onExit}) =>  {
     </div>
   )
 }
-//     // debugger
-//   return (
-//     <>
-//         <button onClick={() => setShowModal(true)}>Log In</button>
-//         {showModal && (
-//         <Modal className="content-modal" onClose={() => setShowModal(false)} >
-//             {/* nMouseExit={setShowModal(true)} */}
-//             <ModalContentItem content={content}/>
-//         </Modal>
-//       )}
-//     </>
-//   );
-// }
 
 export default ContentModal;

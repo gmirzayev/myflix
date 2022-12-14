@@ -1,8 +1,10 @@
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import './ContentIndex.css';
 import * as contentActions from '../../store/contents';
-import { useEffect, useState } from "react";
+
+import './ContentIndex.css';
 import ContentRow from "./ContentRow";
+import ContentFeatured from '../ContentIndex/ContentFeatured';
 
 const ContentIndex = () => {
 
@@ -27,6 +29,8 @@ const ContentIndex = () => {
 
     return (
         <>
+            {/* <ContentFeatured content={allContent[0]}/> */}
+            <ContentFeatured />
             {allContent && categoryRows}
         </>
     )

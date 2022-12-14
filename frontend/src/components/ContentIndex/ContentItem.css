@@ -39,11 +39,12 @@
 .content-image-wrapper {
     overflow: hidden;
     width: 100%;
-    position: relative;
+    /* position: relative; */
+    z-index: -1;
 }
 
 .content-item-picture {
-    position: relative;
+    /* position: relative; */
     border-radius: 0.2vw;
     width: 100%;
 }

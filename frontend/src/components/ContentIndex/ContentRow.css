@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 3vw 0;
     padding: 0;
+    /* position: relative; */
 }
 
 .content-row h1 {
@@ -25,7 +26,7 @@
 }
 
 .slider-button {
-    z-index: 100;
+    z-index: 2;
 }
 
 /* .slider {
