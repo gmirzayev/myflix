@@ -46,13 +46,13 @@ export const createSave = ({contentId, profileId}) => async dispatch => {
     const response = await csrfFetch(`/api/saves`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        body: JSON.stringify({save:{
             contentId,
             profileId
-        })
+        }})
     })
     const data = await response.json();
-    dispatch(receiveSave(data));
+    dispatch(receiveSave(data.save));
 } 
 
 const saveReducer = (state = {}, action) => {

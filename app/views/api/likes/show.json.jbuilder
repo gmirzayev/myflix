@@ -1,3 +1,3 @@
-json.set! @like.id do
-    json.extract! @like, :id, :content_id, :video_id
+json.like do
+    json.extract! @like, :id, :content_id, :profile_id
 end

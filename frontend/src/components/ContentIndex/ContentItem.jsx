@@ -4,6 +4,7 @@ import ContentModal from './ContentModal';
 
 const ContentItem = ({test, content}) => {
     const [previewModal, setPreviewModal] = useState(false);
+    // const liked = useSelector(likeActions.getLike(content.id));
 
     return (
         <div className="content-item-container">

@@ -1,5 +1,6 @@
 class Api::LikesController < ApplicationController
     before_action :require_logged_in, only: [:index, :create, :destroy]
+    wrap_parameters include: Like.attribute_names + ['profile_id'] + ['content_id']
 
     def index 
         @profile = Profile.find_by(id: params[:profile_id])

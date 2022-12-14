@@ -32,7 +32,7 @@ const BrowsePage = () => {
             (<div className="browse-page" id="browse-page">
                 <Navigation />
                 <div className="browse-main">
-                    <ContentIndex />
+                    <ContentIndex sessionProfile={sessionProfile}/>
                 </div>
             </div>) : 
             <ProfilePage editable={false}/>

@@ -28,7 +28,7 @@ const receiveLike = (like) => {
 export const getLikes = (state) => {
     return state.like ? Object.values(state.like) : [];
 }
-  
+
 export const fetchLikes = (profileId) => async dispatch => {
     const response = await csrfFetch(`/api/profiles/${profileId}/likes`);
     const data = await response.json();
@@ -46,13 +46,13 @@ export const createLike = ({contentId, profileId}) => async dispatch => {
     const response = await csrfFetch(`/api/likes`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
+        body: JSON.stringify({like:{
             contentId,
             profileId
-        })
+        }})
     })
     const data = await response.json();
-    dispatch(receiveLike(data));
+    dispatch(receiveLike(data.like));
 } 
 
 const likeReducer = (state = {}, action) => {
