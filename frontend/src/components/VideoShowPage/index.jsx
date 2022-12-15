@@ -18,7 +18,7 @@ const VideoShowPage = () => {
     }
 
     return (
-        <div>
+        <div className="video-page">
             <button className="video-back-button" onClick={handleBack}>Go back from {video && video.title}</button>
             <video className="full-video" controls src={require('../../assets/Arcane_s1e1.mp4')}/>
         </div>

@@ -6,7 +6,7 @@ import SplashPage from "./components/SplashPage";
 import ProfilePage from "./components/ProfilePage";
 import BrowsePage from "./components/BrowsePage";
 import VideoShowPage from "./components/VideoShowPage";
-import EditProfilePage from "./components/EditProfilePage";
+import SavedListPage from "./components/SavedListPage";
 
 function App() {
   return (
@@ -26,6 +26,9 @@ function App() {
         </Route>
         <Route path="/browse">
           <BrowsePage />
+        </Route>
+        <Route path="/mylist" >
+          <SavedListPage />
         </Route>
         <Route path="/profiles/manage">
           <ProfilePage editable={true}/>

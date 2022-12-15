@@ -23,14 +23,14 @@
       width: 25%;
     }
 }
-
+/* 
 @media screen and (min-width: 1100px) and (max-width: 1399px) {
     .content-item-container {
       width: 20%;
     }
-}
+} */
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1100px) {
     .content-item-container {
       width: 16.6%;
     }

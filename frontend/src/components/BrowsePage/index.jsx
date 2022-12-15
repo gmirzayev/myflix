@@ -7,6 +7,7 @@ import './browse.css';
 import ProfilePage from "../ProfilePage";
 import Navigation from "./Navigation";
 import ContentIndex from "../ContentIndex";
+import Footer from "../Footer";
 import { fetchProfiles } from '../../store/profiles';
 
 
@@ -37,6 +38,7 @@ const BrowsePage = () => {
                 <div className="browse-main">
                     <ContentIndex sessionProfile={sessionProfile}/>
                 </div>
+                <Footer />
             </div>) : 
             <ProfilePage editable={false}/>
             }

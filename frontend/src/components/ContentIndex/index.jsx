@@ -34,11 +34,11 @@ const ContentIndex = ({sessionProfile}) => {
     })
 
     return (
-        <>
+        <div className="content-index">
             {/* <ContentFeatured content={allContent[0]}/> */}
             <ContentFeatured />
             {allContent && likes && saves && categoryRows}
-        </>
+        </div>
     )
 }
 

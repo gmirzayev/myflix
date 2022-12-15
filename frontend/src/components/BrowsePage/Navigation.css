@@ -15,6 +15,7 @@
     display: flex;
     margin: 0;
     padding: 0;
+    margin-right: auto;
 }
 
 .myflix-logo-browse {
@@ -37,8 +38,10 @@
 .second-navigation {
     align-items: center;
     display: flex;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     height: 100%;
+    position: relative;
+    right: 200px;
     /* justify-content: flex-end; */
     /* position: relative; */
     /* right: 0; */
@@ -51,17 +54,17 @@
     align-items: center;
     display: flex;
     height: 300px;
-    position: relative;
+    /* position: relative; */
     /* right: 100; */
-    /* position: absolute; */
+    position: absolute;
 }
 
 .second-navigation-dropdown {
     display: none;
     position: relative;
-    right: 0;
+    left: -220px;
     padding: 0;
-    top: 52px;
+    top: 80px;
     width: 220px;
     background-color: rgba(0,0,0,.9);
     border: 1px solid hsla(0,0%,100%,.15);

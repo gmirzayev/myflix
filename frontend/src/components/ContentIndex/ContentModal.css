@@ -43,6 +43,8 @@
 
 .modal-interaction-row {
     margin: 10px;
+    display: flex;
+    flex-direction: row;
 }
 
 .rating-row {
@@ -53,10 +55,102 @@
     margin: 10px;
 }
 
-.blue {
+.like-container {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid gray;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.play-container {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid gray;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.play-container svg {
+    /* height: 20px;
+    width: auto; */
+}
+
+.play-container g {
+    fill: white;
+}
+
+.like-container svg {
+    height: 20px;
+    width: auto;
+    margin-top: 9px;
+}
+
+.liked {
+    border-color: white;
+}
+
+.not-liked g {
+    fill: gray
+}
+
+.liked g {
+    fill: white;
+}
+
+.saved {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid white;
+    text-align: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.saved svg {
+    margin-top: 5px;
+    height: 30px;
+    width: auto;
+}
+
+.saved g {
+    fill: white;
+}
+
+.not-saved {
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid gray;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.not-saved svg {
+    height: 20px;
+    width: auto;
+    margin-top: 9px;
+}
+
+.not-saved g {
+    fill: gray;
+}
+
+/* .blue {
     background-color: blue;
 }
 
 .red {
     background-color: red;
-}
+} */

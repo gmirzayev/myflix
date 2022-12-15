@@ -31,8 +31,8 @@ const ContentRow = ({category}) => {
             direction = "right";
         }
         const sliderIndex = parseInt(getComputedStyle(slider).getPropertyValue("--slider-index"))
-        const progressCount = parseInt(getComputedStyle(slider).getPropertyValue("--items-shown"))
-        const timesToShift = Math.floor(row.length/progressCount);
+        const itemsShown = parseInt(getComputedStyle(slider).getPropertyValue("--items-shown"))
+        const timesToShift = Math.floor(row.length/itemsShown);
         if(direction === "left") {
             if (sliderIndex - 1 < 0) {
                 slider.style.setProperty("--slider-index", timesToShift - 1)
@@ -52,11 +52,30 @@ const ContentRow = ({category}) => {
         <div className="content-row-container">
             <h1>{category}</h1>
             <div className="content-row">
-                <button className="slider-button slide-left" onClick={handleSlideClick}>Left</button>
+                {/* <button className="slider-button slide-left" onClick={handleSlideClick}></button> */}
+                <div className="slider-button slide-left" onClick={handleSlideClick}>
+                    <svg className="arrow-left" width="519" height="146" viewBox="0 0 519 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs id="genericDefs" />
+                        <g>
+                            <g>
+                            <path d="M130.2188 386.1562 L9.2812 315 L9.2812 290.8125 L130.2188 219.6562 L130.2188 245.3906 L33.4688 302.9062 L130.2188 360.5625 L130.2188 386.1562 Z" stroke="none" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
                 <div className="content-slider">
                     {row}
                 </div>
-                <button className="slider-button slide-right" onClick={handleSlideClick}>Right</button>
+                <div className="slider-button slide-right" onClick={handleSlideClick}>
+                    <svg className="arrow-right" width="519" height="146" viewBox="0 0 519 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs id="genericDefs" />
+                        <g>
+                            <g>
+                            <path d="M130.2188 386.1562 L9.2812 315 L9.2812 290.8125 L130.2188 219.6562 L130.2188 245.3906 L33.4688 302.9062 L130.2188 360.5625 L130.2188 386.1562 Z" stroke="none" />
+                            </g>
+                        </g>
+                    </svg>
+                </div>
             </div>
         </div>
     )
