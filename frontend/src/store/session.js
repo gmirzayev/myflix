@@ -94,6 +94,7 @@ export const logout = () => async (dispatch) => {
   storeCurrentUser(null);
   dispatch(removeCurrentUser());
   dispatch(removeCurrentProfile());
+  storeCurrentProfile();
   return response;
 };
 

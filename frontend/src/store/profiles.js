@@ -1,4 +1,5 @@
 import { csrfFetch } from './csrf';
+import { setCurrentProfile, storeCurrentProfile } from './session';
 
 const RECEIVE_PROFILES = 'profiles/receiveProfiles';
 const RECEIVE_PROFILE = 'profiles/receiveProfile';
@@ -63,7 +64,8 @@ export const updateProfile = (profile) => async dispatch => {
 }
 
 export const createProfile = ({name, picture}) => async dispatch => {
-    const response = await csrfFetch(`/api/profiles`, {
+    const user = JSON.parse(sessionStorage.getItem("currentUser"));
+    const response = await csrfFetch(`/api/users/${user.id}/profiles`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -72,7 +74,8 @@ export const createProfile = ({name, picture}) => async dispatch => {
         })
     })
     const data = await response.json();
-    dispatch(receiveProfile(data));
+    setCurrentProfile(data.profile);
+    dispatch(receiveProfile(data.profile));
 } 
 
 const profileReducer = (state = {}, action) => {

@@ -17,6 +17,12 @@
     padding: 0;
 }
 
+.myflix-logo-browse {
+    height: 1.68rem;
+    width: 6.28rem;
+    margin-right: auto;
+}
+
 .navlink-tab {
     margin-left: 20px;
 }
@@ -25,6 +31,7 @@
     color: #fff;
     cursor: pointer;
     text-decoration: none;
+    font-size: 14px;
 }
 
 .second-navigation {

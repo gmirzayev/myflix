@@ -10,6 +10,12 @@
     background-color: white;
     height: 90px;
     position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.signup-header svg {
+    margin-left: 3%;
 }
 
 .signup-signin-link {
@@ -60,6 +66,15 @@
 
 .step-title {
     font-size: 32px;
+    margin: 12px 0 12px 0;
+}
+
+.step-description-row-2 {
+    margin-top: 10px;
+}
+
+.email-input {
+    margin-top: 16px;
 }
 
 .signup-input {
@@ -97,3 +112,12 @@
     margin-top: 14px;
 }
 
+.signup-button:hover {
+    background-color: #f6121d;
+}
+
+.signup-field-error {
+    color: #b92d2b;
+    font-size: 13px;
+    margin-bottom: 10px;
+}

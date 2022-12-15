@@ -25,8 +25,8 @@ const LoginFormPage = () => {
       }
     }
     if(checkPassword) {
-      if(password.length < 5) {
-        setPasswordError(["Your password must contain between 4 and 60 characters."])
+      if(password.length < 6) {
+        setPasswordError(["Your password must contain between 6 and 60 characters."])
       } else {
         setPasswordError([""]);
       }

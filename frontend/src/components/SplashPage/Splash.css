@@ -1,74 +1,7 @@
-.splash-banner {
-    align-items: center;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-    min-height: 4rem;
-}
-
-.splash-banner .price-label {
-    font-size: 1.3rem;
-    font-weight: 800;
-}
-
-.banner-new-icon {
-    background-color: #e50914;
-    border-radius: 17px;
-    color: #fff;
-    font-size: .8rem;
-    font-weight: 600;
-    margin: 0.5rem 1rem;
-    padding: 0.2rem 0.5rem;
-    text-transform: uppercase;
-}
-
-
-.banner-plan-info {
-    font-size: 1.1rem;
-}
-
-.banner-learn-more {
-    border: 0;
-    color: #0071eb;
-    margin-left: 0;
-    box-shadow: none;
-    font-weight: 600;
-    padding-left: 1rem;
-}
-
-.learn-more-link {
-    align-items: center;
-    color: inherit;
-    display: flex;
-    font-size: 1rem;
-    font-weight: 700;
-    justify-content: center;
-    line-height: 1em;
-    margin-right: 0.5em;
-    min-height: 37px;
-    min-width: 98px;
-    padding: 12px 1em;
-    width: auto;
-    margin: 0.5em auto;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .splash-header-wrapper {
-    height: 4rem;
-    background-color: transparent;
-    bottom: 0;
     height: 5rem;
-    left: 0;
-    margin: 0 auto;
-    max-width: 1920px;
     padding-top: 20px;
-    position: relative;
-    right: 0;
-    top: 0;
-    transition: background-color .5s;
+    position: relative; 
     width: 100%;
     z-index: 10;
 }
@@ -84,22 +17,14 @@
     position: relative;
 }
 
-.splash-logo {
+.myflix-logo {
+    height: 2.25rem;
+    width: 8.375rem;
     margin-right: auto;
-    color: red;
-    font-size: 24px;
-}
-
-.language-switcher {
-    margin-right: 2rem;
-    display: inline-block;
-    margin: 0 0.75rem;
 }
 
 .splash-login-button {
-    float: none;
     margin-top: 0;
-    white-space: nowrap;
     background-color: #e50914;
     font-size: 1rem;
     font-weight: 400;
@@ -108,6 +33,11 @@
     border-radius: 3px;
     color: #fff;
     text-decoration: none;
+}
+
+.splash-card-container {
+    box-sizing: border-box;
+    height: 530px;
 }
 
 .splash-card-background {
@@ -121,12 +51,13 @@
 }
 
 .splash-background-image-wrapper {
-    height: 692.594px;
+    height: 730px;
     bottom: 0;
     left: 0;
     position: absolute;
     right: 0;
     top: 0;
+    /* border-bottom: 8px solid #222; */
 }
 
 .splash-background-image {
@@ -139,8 +70,9 @@
 }
 
 .splash-background-gradient {
-    background-image: linear-gradient(0deg,rgba(0,0,0,.8) 0,transparent 40%,transparent 75%,rgba(0,0,0,.8));
     background: rgba(0,0,0,.4);
+    background-image: linear-gradient(0deg,rgba(0,0,0,.8) 0,transparent 60%,rgba(0,0,0,.8));
+    /* background: rgba(0,0,0,.4); */
     bottom: 0;
     left: 0;
     position: absolute;
@@ -170,13 +102,14 @@
 .splash-form-wrapper h1 {
     margin: 0 auto;
     max-width: 640px;
-    font-size: 1.75rem;
+    font-size: 3.125rem;
 }
 
 .splash-form-wrapper h2 {
-    font-size: 1.125rem;
+    font-size: 1.625rem;
     margin: 1rem auto;
     max-width: 640px;
+    margin-bottom: 40px;
 }
 
 .email-form {
@@ -187,11 +120,12 @@
 }
 
 .email-form h3 {
-    padding: 0 10%;
+    font-size: 1.2rem;
+    max-width: none;
     font-weight: 400;
     margin: 0 auto;
-    max-width: 450px;
-    font-size: 18px;
+    padding: 0 5%;
+    padding-bottom: 20px;
 }
 
 .splash-email-wrapper {
@@ -219,6 +153,10 @@
     margin: 0;
 }
 
+.splash-email-input:focus {
+    outline: none;
+}
+
 .splash-signup-button {
     display: inline-block;
     flex: 1 0 auto;
@@ -226,7 +164,7 @@
     min-height: 60px;
     min-width: 74px;
     width: auto;
-    padding: 0 1em;
+    padding: 0 25px;
     box-sizing: border-box;
     border: 0;
     border-radius: 2px;
@@ -237,15 +175,61 @@
     background-image: linear-gradient(180deg,#e50914,#db0510);
     box-shadow: 0 1px 0 rgb(0 0 0 / 45%);
     color: #fff;
+
+    align-items: center;
+    display: inline-flex;
+    flex-direction: row;
 }
 
 .splash-signup-text {
     padding: 0.5rem 0;
     flex: 1 1 auto;
     text-align: center;
-    font-size: 1.875rem;
+    font-size: 1.625rem;
 }
 
-/* .splash-email-wrapper {
-    
-} */
+.chevron-wrapper {
+    flex: 0 1 auto;
+    height: 15px;
+    margin: 0 0 0 0.5em;
+    position: relative;
+    width: 0.35em;
+}
+
+.chevron {
+    height: 100%;
+    left: 0;
+    margin: 1px 0;
+    position: absolute;
+    top: 0;
+    transform: scaleX(1);
+}
+
+.chevron path {
+    fill: #fff;
+}
+
+.splash-input-errors {
+    position: absolute;
+    color: #ffa00a;
+    font-size: 15px;
+    bottom: 0;
+    margin-left: 125px;
+    padding: 6px 3px;
+    text-align: left;
+}
+
+.story-card {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 70px 45px;
+    background: black;
+    height: 100px;
+}
+
+.disclaimer {
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    vertical-align: middle;
+}

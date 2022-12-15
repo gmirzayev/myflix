@@ -9,18 +9,15 @@ const ContentModal = ({content, onExit}) =>  {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionProfile = JSON.parse(sessionStorage.getItem("currentProfile"));
-  // debugger
-  // const likes = useSelector(state => state.like);
+
   const like = useSelector((state) => Object.values(state.like).find(ele => ele.contentId === content.id))
   const save = useSelector((state) => Object.values(state.save).find(ele => ele.contentId === content.id))
   const [liked, setLiked] = useState(like ? true : false);
   const [saved, setSaved] = useState(save ? true : false);
 
-  // useEffect(() => {
-  //   // dispatch(likeActions.fetchLikes(sessionProfile.id));
-  // }, [liked, saved])
-  // debugger
-  // :title, :description, :year, :parental_rating, :category, presence: true
+  useEffect(() => {
+    
+  },[sessionProfile])
 
   const handleClick = () => {
     history.push(`/browse/video/${content.id}`)

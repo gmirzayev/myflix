@@ -6,7 +6,7 @@ import ContentItem from "./ContentItem";
 const ContentRow = ({category}) => {
     // const dispatch = useDispatch();
     const allContent = useSelector(contentActions.getContentsByCategory(category));
-    const testContent = Array(10).fill(...allContent);
+    const testContent = Array(12).fill(...allContent);
     
 
     // useEffect(() => {
@@ -21,7 +21,6 @@ const ContentRow = ({category}) => {
     })
 
     const handleSlideClick = (e) => {
-        console.log("slide");
         let slider;
         let direction;
         if(e.target.classList.contains("slide-left")) {
@@ -41,7 +40,7 @@ const ContentRow = ({category}) => {
                 slider.style.setProperty("--slider-index", sliderIndex - 1)
             }
         } else {
-            if (sliderIndex + 1 > timesToShift) {
+            if (sliderIndex + 1 >= timesToShift) {
             slider.style.setProperty("--slider-index", 0)
             } else {
             slider.style.setProperty("--slider-index", sliderIndex + 1)

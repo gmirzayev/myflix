@@ -4,7 +4,9 @@ const ContentFeatured = ({content}) => {
     return (
         <div className="featured-banner-container">
             <div className="featured-banner">
-                <img src={require('../../assets/ArcaneImage.jpeg')} className="featured-banner-picture"/>
+                <img src={require('../../assets/gudetama-featured.webp')} className="featured-banner-picture"/>
+            </div>
+            <div className="banner-transition">
             </div>
         </div>
     )

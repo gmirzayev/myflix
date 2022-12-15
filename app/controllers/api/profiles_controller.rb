@@ -43,7 +43,6 @@ class Api::ProfilesController < ApplicationController
     def destroy
         profileId = params[:id]
         profile = Profile.find_by(id: profileId)
-        debugger
         if profile
             profile.destroy
         end

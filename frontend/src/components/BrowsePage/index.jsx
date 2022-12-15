@@ -7,6 +7,7 @@ import './browse.css';
 import ProfilePage from "../ProfilePage";
 import Navigation from "./Navigation";
 import ContentIndex from "../ContentIndex";
+import { fetchProfiles } from '../../store/profiles';
 
 
 const BrowsePage = () => {
@@ -16,11 +17,13 @@ const BrowsePage = () => {
     const [video, setVideo] = useState([]);
 
     useEffect(() => {
-        const fetchPosts = async () => {
-          const res = await csrfFetch("/api/videos");
-          setVideo(await res.json());
-        }
-        fetchPosts();
+        // const fetchPosts = async () => {
+        //   const res = await csrfFetch("/api/videos");
+        //   setVideo(await res.json());
+        // }
+        // fetchPosts();
+        dispatch(fetchProfiles());
+
       }, [dispatch]);
 
     if (!sessionUser) return <Redirect to="/login" />;

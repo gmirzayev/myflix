@@ -8,7 +8,7 @@ const ProfileItem = (props) => {
 
     const handleProfilePick = () => {
         dispatch(setCurrentProfile(profile));
-        dispatch(storeCurrentProfile(profile));
+        storeCurrentProfile(profile);
     }
 
     const handleProfileEdit = () => {

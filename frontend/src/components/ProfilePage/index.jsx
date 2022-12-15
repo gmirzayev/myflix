@@ -5,6 +5,7 @@ import './Profile.css';
 import { getProfiles, fetchProfiles } from "../../store/profiles";
 import ProfileItem from "./ProfileItem";
 import EditProfilePage from "../EditProfilePage";
+import ProfileNewItem from "./ProfileNewItem";
 
 const ProfilePage = ({editable}) => {
     const dispatch = useDispatch();
@@ -38,12 +39,13 @@ const ProfilePage = ({editable}) => {
 
     return (
         <>
-            {showProfile && editProfile ? <EditProfilePage editProfile={editProfile} /> : <div className="profile-page">
+            {showProfile && editProfile ? <EditProfilePage setShowProfile={setShowProfile} editProfile={editProfile} /> : <div className="profile-page">
                 <div className="profile-centered-container">
                     <div className="profile-container">
                         <h1>{editable ? "Manage Profiles:":"Who's watching?"}</h1>
                         <ul>
                             {generateProfileItems}
+                            {!editable && profiles.length < 5 && <ProfileNewItem setShowProfile={setShowProfile} setEditProfile={setEditProfile}/>}
                         </ul>
                         {editable ? <button className="edit-finish-button" onClick={handleFinishClick}>Done</button> : 
                                     <button className="manage-profile-button" onClick={handleManageClick}>Manage Profiles</button>}

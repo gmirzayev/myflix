@@ -1,10 +1,10 @@
 /* TODO Add site wide styles */
-/* @font-face {
-    font-family: 'NetflixRegular';
-    src: local('NetflixRegular'), url(./fonts/NetflixSans_W_Rg.woff2) format('woff2');
-} */
+@font-face {
+    font-family: 'NetflixSans';
+    src: url('./assets/fonts/NetflixSans_W_Rg.woff2') format('woff2');
+}
 
-body, html {
-    /* font-family: 'NetflixRegular'; */
+* {
+    font-family: 'NetflixSans', sans-serif;
     letter-spacing: 0;
 }
