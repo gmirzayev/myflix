@@ -541,46 +541,46 @@ c36.photo.attach(
 #   episode: 1
 # )
 
-puts "Creating likes..."
+# puts "Creating likes..."
 
-Like.create!(
-  profile_id: p1.id,
-  content_id: content.id
-)
+# Like.create!(
+#   profile_id: p1.id,
+#   content_id: content.id
+# )
 
-Like.create!(
-  profile_id: p1.id,
-  content_id: content2.id
-)
+# Like.create!(
+#   profile_id: p1.id,
+#   content_id: content2.id
+# )
 
-Like.create!(
-  profile_id: p2.id,
-  content_id: content2.id
-)
-Like.create!(
-  profile_id: p2.id,
-  content_id: content3.id
-)
-Like.create!(
-  profile_id: p3.id,
-  content_id: content.id
-)
-Like.create!(
-  profile_id: p3.id,
-  content_id: content3.id
-)
+# Like.create!(
+#   profile_id: p2.id,
+#   content_id: content2.id
+# )
+# Like.create!(
+#   profile_id: p2.id,
+#   content_id: content3.id
+# )
+# Like.create!(
+#   profile_id: p3.id,
+#   content_id: content.id
+# )
+# Like.create!(
+#   profile_id: p3.id,
+#   content_id: content3.id
+# )
 
-puts "Creating saves..."
+# puts "Creating saves..."
 
-Save.create!(
-  profile_id: p1.id,
-  content_id: content.id
-)
+# Save.create!(
+#   profile_id: p1.id,
+#   content_id: content.id
+# )
 
-Save.create!(
-  profile_id: p2.id,
-  content_id: content3.id
-)
+# Save.create!(
+#   profile_id: p2.id,
+#   content_id: content3.id
+# )
 
 # puts "Creating watchings..."
 
