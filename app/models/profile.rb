@@ -24,7 +24,8 @@ class Profile < ApplicationRecord
 
     has_many :likes,
         dependent: :destroy
-    has_many :watchings
+    has_many :watchings,
+        dependent: :destroy
 
     has_many :saved_contents,
         through: :saves,
