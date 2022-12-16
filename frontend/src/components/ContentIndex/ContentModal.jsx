@@ -119,11 +119,16 @@ const ContentModal = () =>  {
             </div>}
           </div>
           <div className="rating-row">
-            <span>{content.parentalRating}</span>
+            <span>{content.title}</span>
+            <span>-</span>
+            <span>{content.year}</span>
           </div>
           <div className="category-row">
             <span>{content.category}</span>
+            <span>-</span>
+            <span>{content.parentalRating}</span>
           </div>
+          {/* :title, :description, :year, :parental_rating, :category */}
         </div>
       </div>
     </div>
