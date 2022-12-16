@@ -21,7 +21,8 @@ class Profile < ApplicationRecord
         class_name: "Save",
         foreign_key: :profile_id
 
-    has_many :likes
+    has_many :likes,
+        dependent: :destroy
     has_many :watchings
 
     has_many :saved_contents,
