@@ -8,6 +8,7 @@ import sessionReducer from "./session";
 import userReducer from "./users";
 import videoReducer from "./videos";
 import watchingReducer from "./watchings";
+import modalContentReducer from "./modalContent";
 
 let enhancer;
 
@@ -28,7 +29,8 @@ const rootReducer = combineReducers({
     watching: watchingReducer,
     save: saveReducer,
     video: videoReducer,
-    content: contentReducer
+    content: contentReducer,
+    modalContent: modalContentReducer
 });
 
 const configureStore = (preloadedState={}) => {

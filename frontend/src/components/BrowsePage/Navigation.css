@@ -7,7 +7,7 @@
     display: flex;
     position: fixed;
     align-items: center;
-    width: inherit;
+    width: 100%;
 }
 
 .main-navigation {
@@ -64,7 +64,7 @@
     position: relative;
     left: -220px;
     padding: 0;
-    top: 80px;
+    top: 120px;
     width: 220px;
     background-color: rgba(0,0,0,.9);
     border: 1px solid hsla(0,0%,100%,.15);

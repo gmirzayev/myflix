@@ -32,7 +32,7 @@ const Navigation = () => {
     }}).map((profile) => {
       return (
       <li className="profile-switch" key={profile.id} value={profile.id} onClick={handleProfileSwitch}>
-        <img className="profile-picture-icon" src={require('../../assets/poro.png')} alt="profile"></img>
+        <img className="profile-picture-icon" src={`${profile.picture}`} alt="profile"></img>
         <span>{profile.name}</span>
       </li>
       )
@@ -74,13 +74,13 @@ const Navigation = () => {
           <NavLink to="/browse" className="main-navigation-navlink">Movies</NavLink>
         </li>
         <li className="navlink-tab">
-          <NavLink to="/browse" className="main-navigation-navlink">My List</NavLink>
+          <NavLink to="/mylist" className="main-navigation-navlink">My List</NavLink>
         </li> 
       </ul>
       <div className="second-navigation">
         <div className="dropdown-account" onMouseEnter={(e) => setDropdown(true)} onMouseLeave={(e) => setDropdown(false)}>
           <div className="dropdown-button">
-            <img className="profile-picture-icon" src={require('../../assets/poro.png')} alt="profile"></img>
+            <img className="profile-picture-icon" src={`${currentProfile.picture}`} alt="profile"></img>
             <span className="profile-arrow"></span>
           </div>
           <div className={dropdown ? "second-navigation-dropdown active" : "second-navigation-dropdown"}>

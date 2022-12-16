@@ -1,8 +1,9 @@
 .preview-modal-container {
     box-sizing: border-box;
     position: absolute;
-    top: -50px;
-    left: -35px;
+    display: none;
+    /* top: -50px;
+    left: -35px; */
     z-index: 5;
     width: 321px;
     box-shadow: rgb(0,0,0,.75) 0px 3px 10px;

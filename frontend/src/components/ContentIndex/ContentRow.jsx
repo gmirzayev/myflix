@@ -5,6 +5,7 @@ import ContentItem from "./ContentItem";
 
 const ContentRow = ({category}) => {
     // const dispatch = useDispatch();
+    // const [previewModal, setPreviewModal] = useState(false);
     const allContent = useSelector(contentActions.getContentsByCategory(category));
     
 
@@ -22,6 +23,7 @@ const ContentRow = ({category}) => {
     const handleSlideClick = (e) => {
         let slider;
         let direction;
+
         if(e.target.classList.contains("slide-left")) {
             slider = e.target.nextElementSibling;
             direction = "left";
@@ -48,6 +50,9 @@ const ContentRow = ({category}) => {
     }
 
     return (
+    <>
+    {/* onExit={() => setPreviewModal(false)} */}
+        
         <div className="content-row-container">
             <h1>{category}</h1>
             <div className="content-row">
@@ -77,6 +82,7 @@ const ContentRow = ({category}) => {
                 </div>
             </div>
         </div>
+    </>
     )
 }
 

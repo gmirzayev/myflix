@@ -5,15 +5,18 @@ import { useSelector, useDispatch } from "react-redux";
 import * as likeActions from '../../store/likes';
 import * as saveActions from '../../store/saves';
 
-const ContentModal = ({content, onExit}) =>  {
+const ContentModal = () =>  {
   const history = useHistory();
   const dispatch = useDispatch();
   const sessionProfile = JSON.parse(sessionStorage.getItem("currentProfile"));
+  const content = useSelector((state) => state.modalContent)
 
   const like = useSelector((state) => Object.values(state.like).find(ele => ele.contentId === content.id))
   const save = useSelector((state) => Object.values(state.save).find(ele => ele.contentId === content.id))
   const [liked, setLiked] = useState(like ? true : false);
   const [saved, setSaved] = useState(save ? true : false);
+
+  // const position = document.getElementById(`${content.id}-item`).getBoundingClientRect();
 
   useEffect(() => {
     
@@ -40,9 +43,16 @@ const ContentModal = ({content, onExit}) =>  {
     } 
     setSaved(!saved);
   }
+
+  const handleExit = () => {
+    const modal = document.getElementById('test-modal');
+    modal.style.display = "none";
+  }
   
   return (
-    <div className="preview-modal-container" onMouseLeave={() => onExit()}>
+    <>
+    { content && 
+    <div id="test-modal" className="preview-modal-container" onMouseLeave={handleExit}>
       <div className="preview-modal">
         <img src={content.photoUrl ? content.photoUrl : require('../../assets/ArcaneImage.jpeg')} onClick={handleClick} className="preview-modal-picture"/>
         <div className="preview-modal-info">
@@ -88,8 +98,8 @@ const ContentModal = ({content, onExit}) =>  {
             {save && save.contentId === content.id ? 
             <div className="saved" onClick={handleSave}>
               <svg width="28px" height="28px" viewBox="0 0 28 28">
-                <g stroke="none" stroke-width="1" fill="none">
-                    <g id="ic_fluent_checkmark_28_filled" fill="#212121" fill-rule="nonzero">
+                <g>
+                    <g>
                         <path d="M10.5,19.5857864 L4.20710678,13.2928932 C3.81658249,12.9023689 3.18341751,12.9023689 2.79289322,13.2928932 C2.40236893,13.6834175 2.40236893,14.3165825 2.79289322,14.7071068 L9.79289322,21.7071068 C10.1834175,22.0976311 10.8165825,22.0976311 11.2071068,21.7071068 L25.2071068,7.70710678 C25.5976311,7.31658249 25.5976311,6.68341751 25.2071068,6.29289322 C24.8165825,5.90236893 24.1834175,5.90236893 23.7928932,6.29289322 L10.5,19.5857864 Z" id="🎨-Color"></path>
                     </g>
                 </g>
@@ -117,6 +127,9 @@ const ContentModal = ({content, onExit}) =>  {
         </div>
       </div>
     </div>
+    
+  }
+  </>
   )
 }
 

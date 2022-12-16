@@ -7,6 +7,7 @@ import * as saveActions from '../../store/saves';
 import './ContentIndex.css';
 import ContentRow from "./ContentRow";
 import ContentFeatured from '../ContentIndex/ContentFeatured';
+import ContentModal from "./ContentModal";
 
 const ContentIndex = ({sessionProfile}) => {
 
@@ -32,6 +33,8 @@ const ContentIndex = ({sessionProfile}) => {
             {/* <ContentFeatured content={allContent[0]}/> */}
             <ContentFeatured />
             {allContent && likes && saves && categoryRows}
+            {/* {previewModal && <ContentModal content={content} />} */}
+            <ContentModal />
         </div>
     )
 }

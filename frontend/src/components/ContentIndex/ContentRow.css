@@ -42,10 +42,8 @@
     height: auto;
 }
 
-.slider-button::before {
-    /* content: "\e867";
-    color: white;
-    transform: scale(1.25); */
+.slider-button > * {
+    pointer-events: none;
 }
 
 .arrow-left {

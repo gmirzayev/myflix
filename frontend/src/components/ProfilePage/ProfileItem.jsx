@@ -19,8 +19,8 @@ const ProfileItem = (props) => {
     return (
         <li className="profile">
             <div className="profile-item" onClick={editable ? handleProfileEdit : handleProfilePick}>
-                <div className="profile-picture">
-                    {/* <img src={require('../../assets/poro.png')}></img> */}
+                <div>
+                    <img className="profile-picture" src={profile ? `${profile.picture}` : require('../../assets/poro.png')}></img>
                 </div>
                 {editable && <div className="edit-overlay"></div>}
                 <span className="profile-name">{profile.name}</span>
