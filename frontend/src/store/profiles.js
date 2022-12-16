@@ -60,7 +60,7 @@ export const updateProfile = (profile) => async dispatch => {
         headers: {'Content-Type': 'application/json'}
     })
     let data = await res.json();
-    dispatch(receiveProfile(data));
+    dispatch(receiveProfile(data.profile));
 }
 
 export const createProfile = ({name, picture}) => async dispatch => {

@@ -44,7 +44,7 @@ const ContentModal = ({content, onExit}) =>  {
   return (
     <div className="preview-modal-container" onMouseLeave={() => onExit()}>
       <div className="preview-modal">
-        <img src={require('../../assets/ArcaneImage.jpeg')} onClick={handleClick} className="preview-modal-picture"/>
+        <img src={content.photoUrl ? content.photoUrl : require('../../assets/ArcaneImage.jpeg')} onClick={handleClick} className="preview-modal-picture"/>
         <div className="preview-modal-info">
           <div className="modal-interaction-row">
             <div onClick={handleClick} className="play-container">

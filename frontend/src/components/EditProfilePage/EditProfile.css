@@ -26,6 +26,7 @@
     min-width: 80px;
     white-space: nowrap;
     width: 8vw;
+    position: relative;
 }
 
 .edit-picture {
@@ -36,6 +37,33 @@
     min-width: 80px;
     width: 8vw;
     border-radius: 4px;
+}
+
+.picture-edit-button {
+    background-color: transparent;
+    border: none;
+    bottom: 7%;
+    cursor: pointer;
+    left: 7%;
+    position: absolute;
+}
+
+.change-svg {
+    background-color: rgba(0,0,0,.7);
+    border-radius: 5rem;
+    filter: drop-shadow(1px 1px 2px #000);
+    height: 2rem;
+    max-height: 45px;
+    max-width: 45px;
+    width: 2rem;
+    border: 1px solid transparent;
+    margin: 0 -1px;
+    overflow: visible;
+    transform: scale(1);
+}
+
+.change-svg path {
+    fill: white;
 }
 
 .edit-profile-form {
@@ -99,4 +127,49 @@
 .not-save-button:hover {
     border-color: white;
     color: white;
+}
+
+.change-picture-container {
+    background: #141414;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 0;
+}
+
+.picture-header {
+    max-width: 1370px;
+}
+
+.back-wrapper {
+    align-items: center;
+    display: flex;
+    position: relative;
+    width: 50px;
+}
+
+.back-arrow {
+    /* bottom: 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    top: 0;
+    width: 4%;
+    z-index: 20;
+    background: hsla(0,0%,8%,.5);
+    
+    font-size: 2.5vw;
+    height: auto;
+    left: 0; */
+}
+
+.back-arrow g {
+    fill: black;
+    height: 100%;
+    margin-left: 10px;
 }

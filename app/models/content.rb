@@ -24,6 +24,6 @@ class Content < ApplicationRecord
         dependent: :destroy
 
     # has_one_attached :video_file
-    # has_one_attached :photo
+    has_one_attached :photo
 end
 

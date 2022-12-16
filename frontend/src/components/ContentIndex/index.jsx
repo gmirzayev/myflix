@@ -21,14 +21,8 @@ const ContentIndex = ({sessionProfile}) => {
         dispatch(saveActions.fetchSaves(sessionProfile.id));
     }, [dispatch])
 
-    let categoryList = [];
-    if(allContent) {
-        for(let i = 0; i < allContent.length; i++) {
-            if(!(allContent[i].category in categoryList)) {
-                categoryList.push(allContent[i].category)
-            }
-        }
-    }
+    let categoryList = ["Animated", "Drama", "Action"];
+
     const categoryRows = categoryList.map((category) => {
         return <ContentRow key={category} category={category}/>
     })

@@ -6,13 +6,12 @@ import ContentItem from "./ContentItem";
 const ContentRow = ({category}) => {
     // const dispatch = useDispatch();
     const allContent = useSelector(contentActions.getContentsByCategory(category));
-    const testContent = Array(12).fill(...allContent);
     
 
     // useEffect(() => {
     //     dispatch(contentActions.fetchContents());
     // }, [dispatch])
-    const row = testContent.map((content, idx) => {
+    const row = allContent.map((content, idx) => {
         // debugger
         // const like = likes.filter(like => {
         //     return like.contentId === content.id;
