@@ -6,7 +6,7 @@ Myflix is a clone of the popular streaming site Netflix. Myflix users can sign u
 
 To build this clone, the following technologies were used:
 
-* Languages: Ruby, Javascript, HTML, and CSS.
+* Languages: Ruby, Javascript, HTML, and CSS
 * Backend API: Ruby on Rails
 * Frontend framework: React
 * Database: PostgreSQL
