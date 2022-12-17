@@ -1,4 +1,4 @@
-## MYFLIX
+# MYFLIX
 <a href="https://myflix.onrender.com">Live site for Myflix</a>
 
 # Introduction
@@ -11,8 +11,8 @@ To build this clone, the following technologies were used:
 * Frontend framework: React
 * Database: PostgreSQL
 
-## Profiles
-# Create, read, update, delete
+# Profiles
+## Create, read, update, delete
 
 Profiles allow a user to share their Myflix account. Up to 5 profiles can be created that each have their own set of liked content and saved content. 
 
