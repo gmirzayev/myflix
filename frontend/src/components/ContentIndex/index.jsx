@@ -9,13 +9,13 @@ import ContentRow from "./ContentRow";
 import ContentFeatured from '../ContentIndex/ContentFeatured';
 import ContentModal from "./ContentModal";
 
-const ContentIndex = ({sessionProfile}) => {
+const ContentIndex = ({filter, sessionProfile}) => {
 
     const dispatch = useDispatch();
     const allContent = useSelector(contentActions.getContents);
     const likes = useSelector(state => state.like);
     const saves = useSelector(state => state.save);
-    
+
     useEffect(() => {
         dispatch(contentActions.fetchContents());
         dispatch(likeActions.fetchLikes(sessionProfile.id));
@@ -25,13 +25,17 @@ const ContentIndex = ({sessionProfile}) => {
     let categoryList = ["Animated", "Drama", "Action"];
 
     const categoryRows = categoryList.map((category) => {
-        return <ContentRow key={category} category={category}/>
+        return <ContentRow key={category} category={category} filter={filter}/>
+    })
+
+    const featuredContent = allContent.find((content) => {
+        return content.title === "Gudetama: An Eggcellent Adventure";
     })
 
     return (
         <div className="content-index">
             {/* <ContentFeatured content={allContent[0]}/> */}
-            <ContentFeatured />
+            {filter && filter === "all" && <ContentFeatured content={featuredContent}/>}
             {allContent && likes && saves && categoryRows}
             {/* {previewModal && <ContentModal content={content} />} */}
             <ContentModal />

@@ -8,7 +8,7 @@ const SignupFormPage = () => {
   const dispatch = useDispatch(); 
   const sessionUser = useSelector(state => state.session.user);
   const savedEmail = sessionStorage.getItem("currentEmail");
-  const [email, setEmail] = useState(savedEmail);
+  const [email, setEmail] = useState(savedEmail || "");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [checkEmail, setCheckEmail] = useState(false);

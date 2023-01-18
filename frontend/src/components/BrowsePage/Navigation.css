@@ -29,7 +29,7 @@
 }
 
 .main-navigation-navlink {
-    color: #fff;
+    color: #e5e5e5;
     cursor: pointer;
     text-decoration: none;
     font-size: 14px;
@@ -42,6 +42,8 @@
     height: 100%;
     position: relative;
     right: 200px;
+    /* top: 150px; */
+    /* top: 0;   */
     /* justify-content: flex-end; */
     /* position: relative; */
     /* right: 0; */
@@ -53,19 +55,22 @@
 .dropdown-account {
     align-items: center;
     display: flex;
+    flex-direction: column;
     height: 300px;
     /* position: relative; */
     /* right: 100; */
     position: absolute;
+    top: 15px;
 }
 
 .second-navigation-dropdown {
     display: none;
     position: relative;
-    left: -220px;
+    /* left: -220px; */
     padding: 0;
-    top: 120px;
-    width: 220px;
+    /* top: 0; */
+    /* top: 120px; */
+    /* width: 220px; */
     background-color: rgba(0,0,0,.9);
     border: 1px solid hsla(0,0%,100%,.15);
     box-sizing: border-box;
@@ -98,8 +103,14 @@
 }
 
 .profile-switch {
-    padding: 5px 10px;
+    padding: 10px 10px;
     cursor: pointer;
+    border-bottom: 1px solid hsla(0, 0%, 100%, .25);
+    display: flex;
+}
+
+.profile-switch > * {
+    pointer-events: none;
 }
 
 .profile-switch img {
@@ -128,7 +139,7 @@
 }
 
 .logout-container {
-    border-top: 1px solid hsla(0, 0%, 100%, .25);
+    /* border-top: 1px solid hsla(0, 0%, 100%, .25); */
     padding: 10px 0;
     height: auto;
     margin: 0;
@@ -141,6 +152,23 @@
     box-sizing: border-box;
     line-height: 16px;
     font-size: 13px;
+}
+
+.profiles-button {
+    text-align: center;
+    display: inline-block;
+    text-transform: none;
+    width: 100%;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 10px;
+    border-bottom: 1px solid hsla(0, 0%, 100%, .25);
+}
+
+.profiles-button:hover {
+    text-decoration: underline;
 }
 
 .logout-button {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useParams } from 'react-router-dom';
 import { csrfFetch } from "../../store/csrf";
 
 import './browse.css';
@@ -14,8 +14,9 @@ import { fetchProfiles } from '../../store/profiles';
 const BrowsePage = () => {
     const sessionProfile = useSelector(state => state.session.profile);
     const sessionUser = useSelector(state => state.session.user);
+    const {filter} = useParams();
     const dispatch = useDispatch();
-    const [video, setVideo] = useState([]);
+    // const [video, setVideo] = useState([]);
 
     useEffect(() => {
         // const fetchPosts = async () => {
@@ -36,7 +37,7 @@ const BrowsePage = () => {
             (<div className="browse-page" id="browse-page">
                 <Navigation />
                 <div className="browse-main">
-                    <ContentIndex sessionProfile={sessionProfile}/>
+                    <ContentIndex filter={filter} sessionProfile={sessionProfile}/>
                 </div>
                 <Footer />
             </div>) : 
