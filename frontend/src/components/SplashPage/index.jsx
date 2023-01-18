@@ -25,7 +25,7 @@ const SplashPage = () => {
         }
     }, [email, checkEmail])
 
-    if (sessionUser) return <Redirect to="/browse" />;
+    if (sessionUser) return <Redirect to="/browse/all" />;
 
     const isValidEmail = (email) => {
         return /\S+@\S+\.\S+/.test(email);

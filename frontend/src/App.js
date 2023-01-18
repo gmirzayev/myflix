@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
 import SplashPage from "./components/SplashPage";
@@ -24,7 +24,10 @@ function App() {
         <Route path="/browse/video/:videoId">
           <VideoShowPage />
         </Route>
-        <Route path="/browse">
+        <Route exact path="/browse">
+          <Redirect from="/browse" to="/browse/all"/>
+        </Route>
+        <Route path="/browse/:filter">
           <BrowsePage />
         </Route>
         <Route path="/mylist" >

@@ -12,7 +12,15 @@ const ContentRow = ({category}) => {
     // useEffect(() => {
     //     dispatch(contentActions.fetchContents());
     // }, [dispatch])
-    const row = allContent.map((content, idx) => {
+    const row = allContent.filter((content) => {
+        // if(filter === "movies") {
+        //     return content.
+        // } else if(filter === "tv") {
+
+        // } else {
+            return content;
+        // }
+    }).map((content, idx) => {
         // debugger
         // const like = likes.filter(like => {
         //     return like.contentId === content.id;
@@ -58,7 +66,7 @@ const ContentRow = ({category}) => {
             <div className="content-row">
                 {/* <button className="slider-button slide-left" onClick={handleSlideClick}></button> */}
                 <div className="slider-button slide-left" onClick={handleSlideClick}>
-                    <svg className="arrow-left" width="519" height="146" viewBox="0 0 519 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="arrow-left" width="519" height="40" viewBox="0 0 519 146" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs id="genericDefs" />
                         <g>
                             <g>
@@ -71,7 +79,7 @@ const ContentRow = ({category}) => {
                     {row}
                 </div>
                 <div className="slider-button slide-right" onClick={handleSlideClick}>
-                    <svg className="arrow-right" width="519" height="146" viewBox="0 0 519 146" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className="arrow-right" width="519" height="40" viewBox="0 0 519 146" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs id="genericDefs" />
                         <g>
                             <g>

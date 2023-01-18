@@ -42,5 +42,9 @@
 .footer-link-item a {
     text-decoration: none;
     cursor: pointer;
-    color: #8c8b8b;
+    color: white;
+}
+
+.footer-link-item a:hover {
+    color: lightgray;
 }

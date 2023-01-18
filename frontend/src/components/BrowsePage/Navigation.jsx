@@ -23,7 +23,11 @@ const Navigation = () => {
     dispatch(sessionActions.setCurrentProfile(profile));
     sessionActions.storeCurrentProfile(profile);
   }
- 
+
+  const removeProfile = () => {
+    dispatch(sessionActions.removeCurrentProfile());
+  }
+
   const profileSwitchButtons = profiles.filter((profile) => {
     if(profile.name !== currentProfile.name) {
       return true;
@@ -65,16 +69,16 @@ const Navigation = () => {
       </Link>
       <ul className="main-navigation">
         <li className="navlink-tab">
-          <NavLink to="/browse" className="main-navigation-navlink">Home</NavLink>
+          <NavLink to="/browse/all" activeStyle={{ color:'white' }} className="main-navigation-navlink">Home</NavLink>
+        </li>
+        {/* <li className="navlink-tab">
+          <NavLink to="/browse/tv" activeStyle={{ color:'white' }} className="main-navigation-navlink">TV Shows</NavLink>
         </li>
         <li className="navlink-tab">
-          <NavLink to="/browse" className="main-navigation-navlink">TV Shows</NavLink>
-        </li>
+          <NavLink to="/browse/movies" activeStyle={{ color:'white' }} className="main-navigation-navlink">Movies</NavLink>
+        </li> */}
         <li className="navlink-tab">
-          <NavLink to="/browse" className="main-navigation-navlink">Movies</NavLink>
-        </li>
-        <li className="navlink-tab">
-          <NavLink to="/mylist" className="main-navigation-navlink">My List</NavLink>
+          <NavLink to="/mylist" activeStyle={{ color:'white' }} className="main-navigation-navlink">My List</NavLink>
         </li> 
       </ul>
       <div className="second-navigation">
@@ -88,6 +92,9 @@ const Navigation = () => {
               {profileSwitchButtons}
             </ul>
             <ul className="logout-container">
+              <li className="profiles">
+                <button className="profiles-button" onClick={removeProfile}>Manage Profile</button>
+              </li>
               <li className="logout">
                 <button className="logout-button" onClick={logout}>Sign out of myflix</button>
               </li>
