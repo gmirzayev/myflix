@@ -17,13 +17,6 @@ function ProfileButton({ user }) {
   
   useEffect(() => {
     if (!showMenu) return;
-
-    // const closeMenu = () => {
-    //     console.log("close");
-    //   setShowMenu(false);
-    // };
-
-    // document.addEventListener('click', closeMenu);
   
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);

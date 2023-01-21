@@ -19,7 +19,6 @@ const ContentFeatured = ({content}) => {
                             </svg>
                             <span>Play</span>
                         </button>
-                        {/* <button className="info-modal-button">More Info</button> */}
                     </div>
                 </div>
                 <img src={require('../../assets/gudetama-featured.webp')} className="featured-banner-picture"/>

@@ -8,11 +8,9 @@ import './Navigation.css';
 
 const Navigation = () => {
   const dispatch = useDispatch();
-  // const sessionUser = useSelector(state => state.session.user);
   const [dropdown, setDropdown] = useState(false);
   const currentProfile = useSelector((state) => state.session.profile);
   const profiles = useSelector(getProfiles);
-  // debugger
 
   useEffect(() => {
     dispatch(fetchProfiles());
@@ -71,12 +69,6 @@ const Navigation = () => {
         <li className="navlink-tab">
           <NavLink to="/browse/all" activeStyle={{ color:'white' }} className="main-navigation-navlink">Home</NavLink>
         </li>
-        {/* <li className="navlink-tab">
-          <NavLink to="/browse/tv" activeStyle={{ color:'white' }} className="main-navigation-navlink">TV Shows</NavLink>
-        </li>
-        <li className="navlink-tab">
-          <NavLink to="/browse/movies" activeStyle={{ color:'white' }} className="main-navigation-navlink">Movies</NavLink>
-        </li> */}
         <li className="navlink-tab">
           <NavLink to="/mylist" activeStyle={{ color:'white' }} className="main-navigation-navlink">My List</NavLink>
         </li> 

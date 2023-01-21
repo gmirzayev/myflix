@@ -34,10 +34,8 @@ const ContentIndex = ({filter, sessionProfile}) => {
 
     return (
         <div className="content-index">
-            {/* <ContentFeatured content={allContent[0]}/> */}
             {filter && filter === "all" && <ContentFeatured content={featuredContent}/>}
             {allContent && likes && saves && categoryRows}
-            {/* {previewModal && <ContentModal content={content} />} */}
             <ContentModal />
         </div>
     )

@@ -16,8 +16,6 @@ const ContentModal = () =>  {
   const [liked, setLiked] = useState(like ? true : false);
   const [saved, setSaved] = useState(save ? true : false);
 
-  // const position = document.getElementById(`${content.id}-item`).getBoundingClientRect();
-
   useEffect(() => {
     
   },[sessionProfile])
@@ -128,7 +126,6 @@ const ContentModal = () =>  {
             <span>-</span>
             <span>{content.parentalRating}</span>
           </div>
-          {/* :title, :description, :year, :parental_rating, :category */}
         </div>
       </div>
     </div>

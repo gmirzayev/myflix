@@ -4,27 +4,10 @@ import * as contentActions from '../../store/contents';
 import ContentItem from "./ContentItem";
 
 const ContentRow = ({category}) => {
-    // const dispatch = useDispatch();
-    // const [previewModal, setPreviewModal] = useState(false);
     const allContent = useSelector(contentActions.getContentsByCategory(category));
-    
-
-    // useEffect(() => {
-    //     dispatch(contentActions.fetchContents());
-    // }, [dispatch])
     const row = allContent.filter((content) => {
-        // if(filter === "movies") {
-        //     return content.
-        // } else if(filter === "tv") {
-
-        // } else {
             return content;
-        // }
     }).map((content, idx) => {
-        // debugger
-        // const like = likes.filter(like => {
-        //     return like.contentId === content.id;
-        // })
         return <ContentItem key={idx} content={content} test={idx}/>
     })
 
@@ -59,12 +42,10 @@ const ContentRow = ({category}) => {
 
     return (
     <>
-    {/* onExit={() => setPreviewModal(false)} */}
         
         <div className="content-row-container">
             <h1>{category}</h1>
             <div className="content-row">
-                {/* <button className="slider-button slide-left" onClick={handleSlideClick}></button> */}
                 <div className="slider-button slide-left" onClick={handleSlideClick}>
                     <svg className="arrow-left" width="519" height="40" viewBox="0 0 519 146" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <defs id="genericDefs" />

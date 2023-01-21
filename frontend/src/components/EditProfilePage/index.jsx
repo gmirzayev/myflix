@@ -58,10 +58,6 @@ const EditProfilePage = ({editProfile, setShowProfile}) => {
     return (
         <>
         {changePicture ? 
-            // <div className="change-picture-container">
-            //     <div className="picture-header">
-            //         <div className="back-wrapper">
-            //             <div className="back-button">
                         <svg className="back-arrow" width="519" height="146" viewBox="0 0 519 146" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g>
                                 <g>
@@ -69,11 +65,6 @@ const EditProfilePage = ({editProfile, setShowProfile}) => {
                                 </g>
                             </g>
                         </svg>
-            //         </div>
-            //     </div>
-            // </div>
-                
-            // </div> 
             : 
             <div className="edit-profile-page">
              <div className="edit-container">
