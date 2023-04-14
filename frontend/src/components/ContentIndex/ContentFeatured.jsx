@@ -11,7 +11,7 @@ const ContentFeatured = ({content}) => {
         <div className="featured-banner-container">
             <div className="featured-banner">
                 <div className="featured-info-container">
-                    <img src={require('../../assets/gudetama-text.png')} className="featured-banner-text" />
+                    <img src={require('../../assets/gudetama-text.png')} className="featured-banner-text" alt="gudetama title" />
                     <div className="featured-info-wrapper">
                         <button onClick={handleClick} className="info-play-button">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -21,7 +21,7 @@ const ContentFeatured = ({content}) => {
                         </button>
                     </div>
                 </div>
-                <img src={require('../../assets/gudetama-featured.webp')} className="featured-banner-picture"/>
+                <img src={require('../../assets/gudetama-featured.webp')} className="featured-banner-picture" alt="gudetama"/>
             </div>
             <div className="banner-transition">
             </div>
