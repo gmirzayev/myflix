@@ -1,31 +1,27 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { Redirect, useHistory, Link } from "react-router-dom";
 import './Splash.css';
 import Footer from "../Footer";
 import * as sessionActions from "../../store/session";
 
-const SplashPage = () => {
+export default function SplashPage() {
     const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const [email, setEmail] = useState("");
-    const [errors, setErrors] = useState([]);
-    const [checkEmail, setCheckEmail] = useState(false);
-
-    useEffect(() => {
-        if(checkEmail) {
-            if(email.length < 5) {
-                setErrors(["Email is required!"])
-            } else if(!isValidEmail(email)) {
-                setErrors(["Please enter a valid email address"])
-            } else {
-                setErrors([""])
-            }
-        }
-    }, [email, checkEmail])
+    const [error, setError] = useState("");
 
     if (sessionUser) return <Redirect to="/browse/all" />;
+
+    const checkEmail = () => {
+        if(email.length < 5) {
+            setError("Email is required!")
+        } else if(!isValidEmail(email)) {
+            setError("Please enter a valid email address")
+        } else {
+            setError("")
+        }
+    }
 
     const isValidEmail = (email) => {
         return /\S+@\S+\.\S+/.test(email);
@@ -83,7 +79,7 @@ const SplashPage = () => {
                                 placeholder="Email address"
                                 className="splash-email-input"
                                 onChange={(e) => setEmail(e.target.value)}
-                                onBlur={() => setCheckEmail(true)}
+                                onBlur={checkEmail}
                             />
                             <button type="submit" className="splash-signup-button">
                                 <span className="splash-signup-text">
@@ -99,7 +95,7 @@ const SplashPage = () => {
                             </button>
                         </div>
                         <ul className="splash-input-errors">
-                            {errors.map(error => <li key={error}>{error}</li>)}
+                            {<li key={error}>{error}</li>}
                         </ul>
                     </form>
                 </div>
@@ -108,5 +104,3 @@ const SplashPage = () => {
         </div>
     );
 }
-
-export default SplashPage;
